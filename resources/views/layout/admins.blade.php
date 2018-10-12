@@ -143,7 +143,43 @@
                     </li>
                     
                 </ul>
+            </div>
+
+        <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-th-list"></i>商品分类管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/gtype/create">添加分类</a></li>
+                            <li><a href="/admin/gtype">浏览分类</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-th-list"></i>商品管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/goods/create">添加商品</a></li>
+                            <li><a href="/admin/goods">浏览商品</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-th-list"></i>店铺管理</a>
+                        <ul class="closed">
+                            <li><a href="#">审核店铺</a></li>
+                            <li><a href="#">浏览店铺</a></li>
+                        </ul>
+                    </li>
+                </ul>
             </div>         
+        
+
         </div>
         
         <!-- Main Container Start -->
@@ -172,6 +208,7 @@
     </div>
 
     <!-- JavaScript Plugins -->
+    <script src="/admin/js/libs/jquery-1.11.3.min.js"></script>
     <script src="/admins/js/libs/jquery-3.2.1.min.js"></script>
     <script src="/admins/js/libs/jquery.mousewheel.min.js"></script>
     <script src="/admins/js/libs/jquery.placeholder.min.js"></script>
@@ -205,6 +242,11 @@
 
     <!-- Demo Scripts (remove if not needed) -->
     <script src="/admins/js/demo/demo.dashboard.js"></script>
+
+    <!-- 百度编辑器js代码 -->
+    <script src="/admin/ueditor/ueditor.config.js"></script>
+    <script src="/admin/ueditor/ueditor.all.min.js"> </script>
+    <script src="/admin/ueditor/lang/zh-cn/zh-cn.js"></script>
 
     <script>
         /*setTimeout(function(){

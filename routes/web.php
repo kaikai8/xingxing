@@ -41,6 +41,8 @@ Route::group(['middleware'=>'adminlogin'],function()
 
 	//前台用户模块
 	Route::resource('admin/homeUser','Admin\homeUserController');
+	Route::resource('admin/gtype','admin\gtype\GtypeController');
+	Route::resource('admin/goods','admin\goods\GoodsController');
 });
 
 
