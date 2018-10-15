@@ -116,10 +116,10 @@ class AdminUserController extends Controller
             $rs = adminUser::create($res);
 
 
-            if($rs){
+        
 
-                return redirect('admin/adminUser')->with('success','添加成功');
-            }
+            return redirect('admin/adminUser')->with('success','添加成功');
+            
         }catch(\Exception $e){
 
             return back()->with('error','添加失败');
@@ -188,10 +188,10 @@ class AdminUserController extends Controller
             $rs = adminUser::where('guid',$guid)->update($res);
 
 
-            if($rs){
+            
 
-                return redirect('/admin/adminUser')->with('success','修改成功');
-            }
+            return redirect('/admin/adminUser')->with('success','修改成功');
+           
         }catch(\Exception $e){
 
             return back()->with('error','修改失败');

@@ -34,8 +34,8 @@
     				<label class="mws-form-label">性别</label>
     				<div class="mws-form-item clearfix">
     					<ul class="mws-form-list inline">
-    						<li><label><input type="radio" name='gsex' value='1'  @if($res->gsex == 1) checked='checked' @endif> 男</label></li>
-    						<li><label><input type="radio" name='gsex' value='2'  @if($res->gsex == 2) checked='checked' @endif>女</label></li>
+    						<li><label><input type="radio" name='gsex' value='男'  @if($res->gsex == '男') checked='checked' @endif> 男</label></li>
+    						<li><label><input type="radio" name='gsex' value='女'  @if($res->gsex == '女') checked='checked' @endif>女</label></li>
     						
     					</ul>
     				</div>

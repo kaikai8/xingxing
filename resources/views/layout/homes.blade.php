@@ -6,35 +6,41 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<!-- GOOGLE WEB FONTS -->
-	<link rel="stylesheet" href="homes/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/homes/css/font-awesome.min.css">
 	
 	<!-- BOOTSTRAP 3.3.7 CSS -->
-	<link rel="stylesheet" href="homes/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/homes/css/bootstrap.min.css" />
 	
 	<!-- SLICK v1.6.0 CSS -->
-	<link rel="stylesheet" href="homes/css/slick-1.6.0/slick.css" />
+	<link rel="stylesheet" href="/homes/css/slick-1.6.0/slick.css" />
 	
-	<link rel="stylesheet" href="homes/css/jquery.fancybox.css" />
-	<link rel="stylesheet" href="homes/css/yith-woocommerce-compare/colorbox.css" />
-	<link rel="stylesheet" href="homes/css/owl-carousel/owl.carousel.min.css" />
-	<link rel="stylesheet" href="homes/css/owl-carousel/owl.theme.default.min.css" />
-	<link rel="stylesheet" href="homes/css/js_composer/js_composer.min.css" />
-	<link rel="stylesheet" href="homes/css/woocommerce/woocommerce.css" />
-	<link rel="stylesheet" href="homes/css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="/homes/css/jquery.fancybox.css" />
+	<link rel="stylesheet" href="/homes/css/yith-woocommerce-compare/colorbox.css" />
+	<link rel="stylesheet" href="/homes/css/owl-carousel/owl.carousel.min.css" />
+	<link rel="stylesheet" href="/homes/css/owl-carousel/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="/homes/css/js_composer/js_composer.min.css" />
+	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce.css" />
+	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="/homes/css/form.css" />
 	
 	
-	<link rel="stylesheet" href="homes/css/yith-woocommerce-wishlist/style.css" />
-	<link rel="stylesheet" href="homes/css/custom.css" />
-	<link rel="stylesheet" href="homes/css/app-orange.css" id="theme_color" />
+	
+	<link rel="stylesheet" href="/homes/css/custom.css" />
+	<link rel="stylesheet" href="/homes/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" />
-	<link rel="stylesheet" href="homes/css/app-responsive.css" /> 
+	<link rel="stylesheet" href="/homes/css/app-responsive.css" /> 
 </head>
 
 <body class="page page-id-6 home-style1">
 
      
+		@php
+		if(session('uid')){
+			$res = DB::table('user')->where('uid',session('uid'))->first();
+		}
 
-
+        @endphp
+	
 	<div class="body-wrapper theme-clearfix">
 		<header id="header" class="header header-style1">
 			<div class="header-top clearfix">
@@ -45,12 +51,12 @@
 							<div class="widget text-2 widget_text pull-left">
 								<div class="widget-inner">
 									<div class="textwidget">
-										<div class="call-us"><span>Call Us Now: </span>0123-444-666654123</div>
+										<div class="call-us"><span>联系我们: </span>0123-444-666654123</div>
 									</div>
 								</div>
 							</div>
 							
-							<div class="widget text-3 widget_text pull-left">
+							<!-- <div class="widget text-3 widget_text pull-left">
 								<div class="widget-inner">
 									<div class="textwidget">
 										<div id="lang_sel">
@@ -93,76 +99,24 @@
 										</ul>
 									</form>
 								</div>
-							</div>
+							</div> -->
 						</div>
 						
 						<div class="wrap-myacc pull-right">
 							<div class="sidebar-account pull-left">
-								<div class="account-title">My account</div>
-                        
-								<div id="my-account" class="my-account">
-									<div class="widget-1 widget-first widget nav_menu-4 widget_nav_menu">
-										<div class="widget-inner">
-											<ul id="menu-my-account" class="menu">
-												<li class="menu-my-account">
-													<a class="item-link" href="my_account.html">
-														<span class="menu-title">My Account</span>
-													</a>
-												</li>
-												
-												<li class="menu-cart">
-													<a class="item-link" href="cart.html">
-														<span class="menu-title">Cart</span>
-													</a>
-												</li>
-												
-												<li class="menu-checkout">
-													<a class="item-link" href="checkout.html">
-														<span class="menu-title">Checkout</span>
-													</a>
-												</li>
-												
-												<li class="menu-wishlist">
-													<a class="item-link" href="#">
-														<span class="menu-title">Wishlist</span>
-													</a>
-												</li>
-											</ul>
-										</div>
-									</div>
-									
-									<div class="widget-2 widget-last widget sw_top-4 sw_top">
-										<div class="widget-inner">
-											<div class="top-login">
-												<div class="div-logined">
-													<ul>
-														<li>
-															<a href="javascript:void(0);" data-toggle="modal" data-target="#login_form">
-																<span>Login</span>
-															</a>
-															<span class="wg">Welcome Guest</span>
-														</li>
-													</ul>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
+								@if(empty($res->uname)) 
+
+									<a href="/home/login" target="_top" class="h" style = "color:red">亲，请登录 | </a> 							
+									<a href="/home/zhuce" target="_top" style = "color:red"> 免费注册</a>
+								@else
+									<span><a href = "/home/centre" style = "color:#ffaa00">您好! {{$res->uname}} |</a></span>
+									<a href="/home/logout" target="_top" style = "color:#ffaa00">退出</a>
+
+								@endif
+								
 							</div>
 							
-							<div class="pull-left top2">
-								<div class="widget-1 widget-first widget nav_menu-2 widget_nav_menu">
-									<div class="widget-inner">
-										<ul id="menu-checkout" class="menu">
-											<li class="menu-checkout">
-												<a class="item-link" href="checkout.html">
-													<span class="menu-title">Checkout</span>
-												</a>
-											</li>
-										</ul>
-									</div>
-								</div>
-							</div>
+							
 						</div>
 					</div>
 				</div>
@@ -189,8 +143,9 @@
 													<div class="cat-wrapper">
 														<label class="label-search">
 															<select name="search_category" class="s1_option">
-																<option value="">All Categories</option>
-																<option value="8">Computers & Laptops</option>
+															
+																<option value="">所有类别</option>
+																<option value="8">电脑 & Laptops</option>
 																<option value="13">Computers & Networking</option>
 																<option value="14">Smartphones & Tablet</option>
 																<option value="15">Home Furniture</option>
@@ -368,7 +323,7 @@
 								<div class="navbar-inner navbar-inverse">
 									<div class="resmenu-container">
 										<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#ResMenuprimary_menu">
-											<span class="sr-only">Categories</span>
+											<span class="sr-only">分类</span>
 											<span class="icon-bar"></span>
 											<span class="icon-bar"></span>
 											<span class="icon-bar"></span>
@@ -376,27 +331,27 @@
 										
 										<div id="ResMenuprimary_menu" class="collapse menu-responsive-wrapper">
 											<ul id="menu-primary-menu" class="etrostore_resmenu">
-												<li><a href="index.html">Home</a></li>
-												<li><a href="cart.html">Cart</a></li>
-												<li><a href="checkout.html">Checkout</a></li>
-												<li><a href="my_account.html">My Account</a></li>
-												<li><a href="shop.html">Shop</a></li>
-												<li><a href="simple_product.html">Simple Product</a></li>
-												<li><a href="about_us.html">About Us</a></li>
-												<li><a href="contact_us.html">Contact Us</a></li>
+												<li><a href="/">首页</a></li>
+												<li><a href="cart.html">购物车</a></li>
+												<li><a href="checkout.html">查看</a></li>
+												<!-- <li><a href="my_account.html">个人中心</a></li> -->
+												<li><a href="shop.html">店铺</a></li>
+												<li><a href="simple_product.html">简单的商品</a></li>
+												<li><a href="about_us.html">关于我们</a></li>
+												<li><a href="contact_us.html">联系我们</a></li>
 											</ul>
 										</div>
 									</div>
 									
 									<ul id="menu-primary-menu-1" class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
-										<li><a href="index.html">Home</a></li>
-										<li><a href="cart.html">Cart</a></li>
-										<li><a href="checkout.html">Checkout</a></li>
-										<li><a href="my_account.html">My Account</a></li>
-										<li><a href="shop.html">Shop</a></li>
-										<li><a href="simple_product.html">Simple Product</a></li>
-										<li><a href="about_us.html">About Us</a></li>
-										<li><a href="contact_us.html">Contact Us</a></li>
+										<li><a href="/">首页</a></li>
+										<li><a href="cart.html">购物车</a></li>
+										<li><a href="checkout.html">查看</a></li>
+										<!-- <li><a href="my_account.html">个人中心</a></li> -->
+										<li><a href="shop.html">店铺</a></li>
+										<li><a href="simple_product.html">简单的商品</a></li>
+										<li><a href="about_us.html">关于我们</a></li>
+										<li><a href="contact_us.html">联系我们</a></li>
 									</ul>
 								</div>
 							</nav>
@@ -544,7 +499,7 @@
 			</div>
 		</header>
 		
-		<div class="listings-title">
+		<!--<div class="listings-title">
 			<div class="container">
 				<div class="wrap-title">
 					<h1>Home</h1>
@@ -567,7 +522,7 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>-->
 		
 		<div class="container">
 			 @section('content')
@@ -1180,6 +1135,8 @@
       	// The customizer requires postMessage and CORS (if the site is cross domain)
       	b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
    </script>
+   	@section('js')
+	@show
    <!--<![endif]-->
    </body>
 </html>

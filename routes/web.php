@@ -41,6 +41,7 @@ Route::group(['middleware'=>'adminlogin'],function()
 
 	//前台用户模块
 	Route::resource('admin/homeUser','Admin\homeUserController');
+	//后台商品管理
 	Route::resource('admin/gtype','admin\gtype\GtypeController');
 	Route::resource('admin/goods','admin\goods\GoodsController');
 });
@@ -51,6 +52,8 @@ Route::group(['middleware'=>'adminlogin'],function()
 //前台登陆页面
 Route::any('home/login','Home\LoginController@login');
 Route::any('home/dologin','Home\LoginController@dologin');
+//前台退出登录
+Route::any('home/logout','Home\LoginController@logout');
 //前台注册页面
 Route::any('home/zhuce','Home\LoginController@zhuce');
 Route::any('home/dozhuce','Home\LoginController@dozhuce');
@@ -58,6 +61,14 @@ Route::any('home/dozhuce','Home\LoginController@dozhuce');
 //前台
 Route::group(['middleware'=>'homelogin'],function()
 {
-	
+	//个人中心
+	Route::any('home/centre','Home\LoginController@centre');
+	//用户资料
+	Route::any('home/message','Home\LoginController@message');
+	//用户资料修改
+	Route::any('home/upmess','Home\LoginController@upmess');
+	//密码修改
+	Route::any('home/pass','Home\LoginController@pass');
+	Route::any('home/dopass','Home\LoginController@dopass');
 
 });

@@ -154,7 +154,7 @@ class LoginController extends Controller
      */
     public function dopass(Request $request)
     {
-    	 //获取数据库密码
+    	/* //获取数据库密码
         $pass = adminUser::where('guid',session('guid'))->first();
 
         //获取旧密码
@@ -170,10 +170,61 @@ class LoginController extends Controller
         try{
            
             $data = adminUser::where('guid',session('guid'))->update($rs);
-            if($data){
+            
 
-                return redirect('/admin/login')->with('success','添加成功');
+            return redirect('/admin/login')->with('success','添加成功');
+            
+        }catch(\Exception $e){
+
+            return back()->with('error','修改密码失败');
+        }*/
+          //获取数据库密码
+        $pass = adminUser::where('guid',session('guid'))->first();
+
+        //获取旧密码
+        $oldpass = $request->oldpass;
+
+        
+
+        if(!($request->oldpass))
+        {
+            $request->oldpass = decrypt($pass->gpwd);
+        }else
+        {
+            if(decrypt($pass->gpwd) != $oldpass){
+
+            return back()->with('error','原密码错误');
             }
+        }
+
+        if(!($request->gpwd))
+        {
+            $request->repass = $request->gpwd = decrypt($pass->gpwd);
+        }
+
+        
+
+         //表单验证
+        $this->validate($request, [
+            
+            'repass' =>'same:gpwd',
+        ],[
+            'repass.same'=>'两次密码不一致',
+
+        ]);
+        
+        $rs['gpwd'] = encrypt($request->gpwd);
+
+         
+
+        try{
+           
+            $data = adminUser::where('guid',session('guid'))->update($rs);
+            //清空session uid
+             session(['guid'=>'']);
+
+            return redirect('/admin/login');
+            
         }catch(\Exception $e){
 
             return back()->with('error','修改密码失败');
