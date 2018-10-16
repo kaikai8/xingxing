@@ -21,20 +21,20 @@
 								<div class="woocommerce">
 									<nav class="woocommerce-MyAccount-navigation">
 										<ul>
-											<li class="is-active">
+											<li>
 												<a href="/home/message"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">个人资料</font></font></a>
 											</li>
 											
 											<li>
-											   <a href="/home/pass"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户名密码修改</font></font></a>
+											   <a href="/home/pass"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">用户密码修改</font></font></a>
 											</li>
 											
 											<li>
-												<a href="http://demo.smartaddons.com/templates/html/etrostore/addresses.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">地址</font></font></a>
+												<a href="/home/addr"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收货信息</font></font></a>
 											</li>
 											
 											<li>
-												<a href="create_account.html"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">退出登陆</font></font></a>
+												<a href="/home/logout"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">退出登陆</font></font></a>
 											</li>
 										</ul>
 									</nav>

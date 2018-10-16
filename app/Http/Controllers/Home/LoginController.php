@@ -265,7 +265,7 @@ class LoginController extends Controller
      */
     public function dopass(Request $request)
     {
-          //获取数据库密码
+        //获取数据库密码
         $pass = User::where('uid',session('uid'))->first();
 
         //获取旧密码
@@ -273,14 +273,14 @@ class LoginController extends Controller
 
         
 
-        if(!($request->oldpass))
+        if(!$oldpass)
         {
-            $request->oldpass = decrypt($pass->password);
-        }else
+            $oldpass = decrypt($pass->password);
+        }elseif($oldpass)
         {
             if(decrypt($pass->password) != $oldpass){
 
-            return back()->with('error','原密码错误');
+                return back()->with('error','原密码错误');
             }
         }
 
@@ -316,5 +316,6 @@ class LoginController extends Controller
 
             return back()->with('error','修改密码失败');
         }
+    
     }
 }

@@ -70,5 +70,7 @@ Route::group(['middleware'=>'homelogin'],function()
 	//密码修改
 	Route::any('home/pass','Home\LoginController@pass');
 	Route::any('home/dopass','Home\LoginController@dopass');
+	//收获信息
+	Route::any('home/addr','Home\LoginControloler@addr');
 
 });

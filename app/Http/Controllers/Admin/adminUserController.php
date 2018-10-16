@@ -213,10 +213,13 @@ class AdminUserController extends Controller
            
             $res = adminUser::where('guid',$guid)->delete();
 
-            if($res){
-
-                return redirect('/admin/adminUser')->with('success','删除成功');
+            if($guid == session('guid'))
+            {
+                session(['guid'=>'']);
             }
+
+            return redirect('/admin/adminUser')->with('success','删除成功');
+            
         }catch(\Exception $e){
 
             return back()->with('error','删除失败');
