@@ -13,7 +13,8 @@
 //前台首页
 Route::get('/',function()
 {
-	return view('home.index',['title'=>'星星商城']);
+	$res = DB::table('gtype')->where('pid','0')->get();
+	return view('home.index',['title'=>'星星商城', 'res'=>$res]);
 });
 
 //后台登陆页面
@@ -41,8 +42,12 @@ Route::group(['middleware'=>'adminlogin'],function()
 
 	//前台用户模块
 	Route::resource('admin/homeUser','Admin\homeUserController');
-	//后台商品管理
+
+	
+
+	// 后台商品分类
 	Route::resource('admin/gtype','admin\gtype\GtypeController');
+	// 后台商品信息
 	Route::resource('admin/goods','admin\goods\GoodsController');
 });
 
@@ -74,3 +79,6 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::any('home/addr','Home\LoginControloler@addr');
 
 });
+
+// 商品详情页
+Route::get('home/goods/{id}','Home\GoodsController@goods');

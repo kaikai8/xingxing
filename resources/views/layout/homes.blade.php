@@ -21,10 +21,14 @@
 	<link rel="stylesheet" href="/homes/css/js_composer/js_composer.min.css" />
 	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce.css" />
 	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
+
 	<link rel="stylesheet" href="/homes/css/form.css" />
 	
 	
+
 	
+	
+	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
 	<link rel="stylesheet" href="/homes/css/custom.css" />
 	<link rel="stylesheet" href="/homes/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" />
