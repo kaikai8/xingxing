@@ -99,8 +99,9 @@
                     <label class="mws-form-label">商品状态</label>
                     <div class="mws-form-item clearfix">
                         <ul class="mws-form-list inline">
-                            <li><label><input type="radio" name='status' value='1' @if($res->status=='1') checked='checked' @endif> 上架</label></li>
-                            <li><label><input type="radio" name='status' value='0' @if($res->status=='0') checked='checked' @endif> 下架</label></li>
+                            <li><label><input type="radio" name='status' value='0' @if($res->status=='0') checked='checked' @endif> 上架</label></li>
+                            <li><label><input type="radio" name='status' value='1' @if($res->status=='1') checked='checked' @endif> 下架</label></li>
+                            <li><label><input type="radio" name='status' value='2' @if($res->status=='2') checked='checked' @endif> 热销</label></li>
                         
                         </ul>
                     </div>

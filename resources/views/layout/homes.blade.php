@@ -6,28 +6,28 @@
 	
 	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<!-- GOOGLE WEB FONTS -->
-	<link rel="stylesheet" href="homes/css/font-awesome.min.css">
+	<link rel="stylesheet" href="/homes/css/font-awesome.min.css">
 	
 	<!-- BOOTSTRAP 3.3.7 CSS -->
-	<link rel="stylesheet" href="homes/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="/homes/css/bootstrap.min.css" />
 	
 	<!-- SLICK v1.6.0 CSS -->
-	<link rel="stylesheet" href="homes/css/slick-1.6.0/slick.css" />
+	<link rel="stylesheet" href="/homes/css/slick-1.6.0/slick.css" />
 	
-	<link rel="stylesheet" href="homes/css/jquery.fancybox.css" />
-	<link rel="stylesheet" href="homes/css/yith-woocommerce-compare/colorbox.css" />
-	<link rel="stylesheet" href="homes/css/owl-carousel/owl.carousel.min.css" />
-	<link rel="stylesheet" href="homes/css/owl-carousel/owl.theme.default.min.css" />
-	<link rel="stylesheet" href="homes/css/js_composer/js_composer.min.css" />
-	<link rel="stylesheet" href="homes/css/woocommerce/woocommerce.css" />
-	<link rel="stylesheet" href="homes/css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="/homes/css/jquery.fancybox.css" />
+	<link rel="stylesheet" href="/homes/css/yith-woocommerce-compare/colorbox.css" />
+	<link rel="stylesheet" href="/homes/css/owl-carousel/owl.carousel.min.css" />
+	<link rel="stylesheet" href="/homes/css/owl-carousel/owl.theme.default.min.css" />
+	<link rel="stylesheet" href="/homes/css/js_composer/js_composer.min.css" />
+	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce.css" />
+	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
 	
 	
-	<link rel="stylesheet" href="homes/css/yith-woocommerce-wishlist/style.css" />
-	<link rel="stylesheet" href="homes/css/custom.css" />
-	<link rel="stylesheet" href="homes/css/app-orange.css" id="theme_color" />
+	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
+	<link rel="stylesheet" href="/homes/css/custom.css" />
+	<link rel="stylesheet" href="/homes/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" />
-	<link rel="stylesheet" href="homes/css/app-responsive.css" /> 
+	<link rel="stylesheet" href="/homes/css/app-responsive.css" /> 
 </head>
 
 <body class="page page-id-6 home-style1">
