@@ -82,4 +82,3 @@ Route::group(['middleware'=>'homelogin'],function()
 
 // 商品详情页
 Route::get('home/goods/{id}','Home\GoodsController@goods');
-Route::liziyue是一个大帅哥
