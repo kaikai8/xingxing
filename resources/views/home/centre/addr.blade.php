@@ -5,6 +5,19 @@
 
 
 @section('content')
+<style>
+	#contents address .btn-danger {
+	   
+        margin-top: 21px;
+        margin-right: -55px;
+
+	}
+    #contents address .btn {
+       
+        float: right;
+
+    }
+</style>
 <div class="container">
     <div class="row">
         <div id="contents" role="main" class="main-page  col-lg-12 col-md-12 col-sm-12 col-xs-12">
@@ -36,36 +49,25 @@
                                 </ul>
                             </nav>
                           	<div class="woocommerce-MyAccount-content">
-								<p><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-									默认情况下，将在结帐页面上使用以下地址。
-								</font></font></p>
 								
 								<div class="u-column1 col-1 woocommerce-Address addresses">
 									<header class="woocommerce-Address-title title">
-										<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">帐单地址</font></font></h3>
-										<a href="address_billing_details.html" class="edit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编辑</font></font></a>
+										<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收件人信息</font></font></h3>
+										<a href="/home/doaddr" class="edit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><button class="btn btn-success">添加</button></font></font></a>
 									</header>
-									
-									<address><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										永久地址</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										Thomas Nolan Kaszas II </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										5322 Otter Lane </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										Middleberge FL 32068</font></font><br>
+									@foreach($res as $k=>$v)
+
+									<address><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->dname}} 
+										</font>@if(($v->moren) == 1) <span style="background:#ffaa00;color:#fff">默认地址</span> @elseif(($v->moren) != 1) <a style="color:#fff" href="/home/moren/{{$v->did}}"><span style="background:#ffcc00">设为默认地址</span></a> @endif</font><br><a href="/home/{{$v->did}}/upaddr"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"><button  class="btn btn-warning">修改</button>
+										</font></font></a><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+										{{$v->dphone}}</font></font><br><form action="/home/deladdr/{{$v->did}}" method = "post"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+                                         {{csrf_field()}}
+                                        <button  class="btn btn-danger">删除</button>
+										</font></font></form><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
+										{{$v->addr}}</font></font><br>
 									</address>
-								</div>
-								
-								<div class="u-column1 col-1 woocommerce-Address addresses">
-									<header class="woocommerce-Address-title title">
-										<h3><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">收件地址</font></font></h3>
-										<a href="address_shipping_details.html" class="edit"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">编辑</font></font></a>
-									</header>
+									@endforeach
 									
-									<address><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										永久地址</font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										Thomas Nolan Kaszas II </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										5322 Otter Lane </font></font><br><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">
-										Middleberge FL 32068</font></font><br>
-									</address>
 								</div>
 							</div>
                            
@@ -88,7 +90,8 @@
         $('body').addClass('woocommerce-page');
 
        
-
     })
+	
+
 </script>
 @stop

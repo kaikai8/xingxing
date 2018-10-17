@@ -94,4 +94,13 @@
 </div>
 
 </body>
+<script>
+    /*setTimeout(function(){
+
+        $('.mws-form-message').fadeOut(2000);
+
+    },5000)*/
+
+    $('.mws-form-message').delay(3000).fadeOut(2000);
+</script>
 </html>

@@ -76,7 +76,18 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::any('home/pass','Home\LoginController@pass');
 	Route::any('home/dopass','Home\LoginController@dopass');
 	//收获信息
-	Route::any('home/addr','Home\LoginControloler@addr');
+	Route::any('home/addr','Home\LoginController@addr');
+	//添加收货信息
+	Route::any('home/doaddr','Home\LoginController@doaddr');
+	Route::any('home/add_addr','Home\LoginController@add_addr');
+	//修改收货信息
+	Route::any('home/{id}/upaddr','Home\LoginController@upaddr');
+	Route::any('home/doupaddr/{id}','Home\LoginController@doupaddr');
+	//设置默认地址
+	Route::any('home/moren/{id}','Home\LoginController@moren');
+	//删除收货信息
+	Route::any('home/deladdr/{id}','Home\LoginController@deladdr');
+
 
 });
 

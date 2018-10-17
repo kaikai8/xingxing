@@ -10,6 +10,8 @@ use Config;
 use Hash;
 use App\Model\Home\User;
 use App\Model\Home\muser;
+use App\Model\Home\addr_message;
+
 
 class LoginController extends Controller
 {
@@ -129,13 +131,15 @@ class LoginController extends Controller
 
         try{
            
-            $rs = User::create($res);
+            $id = User::insertGetId($res);
+            // dd($id);
+            $rs = muser::create(['user_id'=>$id]);
 
 
-            if($rs){
+           
 
-                return redirect('home/login')->with('success','添加成功');
-            }
+            return redirect('home/login')->with('success','添加成功');
+            
         }catch(\Exception $e){
 
             return back()->with('error','添加失败');
@@ -315,6 +319,181 @@ class LoginController extends Controller
         }catch(\Exception $e){
 
             return back()->with('error','修改密码失败');
+        }
+    
+    }
+
+    /**
+     *  收货信息浏览. 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    
+    public function addr()
+    {
+        $res = addr_message::where('user_id',session('uid'))->get();
+        // dd($res[0]['did']);
+        return view('home.centre.addr',['title'=>'收货信息','res'=>$res]);
+    }
+
+    /**
+     *  添加页面 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    public function doaddr()
+    {
+        return view('home.centre.doaddr',['title'=>'添加收获信息']);
+    }
+
+     /**
+     *  添加收获信息 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    public function add_addr(Request $request)
+    {
+        //表单验证
+        $this->validate($request, [
+            'dname' => 'required',
+            'dphone' =>'regex:/^1[3456789]\d{9}$/',
+            'addr' =>'required',
+
+        ],[
+            'dname.required'=>'用户名不能为空!!',
+            'dphone.regex'=>'手机号码格式不正确',
+            'addr.required'=>'收货地址不能为空',
+
+        ]);
+
+
+        
+        $id = session('uid');
+        $res = $request->except('_token','billing_country','save_address');
+        $res['user_id'] = $id;
+        
+        
+
+
+        try{
+           
+            $rs = addr_message::create($res);
+
+
+        
+
+            return redirect('home/addr')->with('success','添加成功');
+            
+        }catch(\Exception $e){
+
+            return back()->with('error','添加失败');
+
+        }
+    }
+
+    /**
+     *  修改用户收货信息. 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    public function upaddr($id)
+    {
+        $res = addr_message::find($id);
+        return view('home.centre.upaddr',['title'=>'编辑收获信息','res'=>$res]);
+    }
+
+    /**
+     *  验证用户信息. 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    public function doupaddr(Request $request,$id)
+    {
+        //表单验证
+        $this->validate($request, [
+            'dname' => 'required',
+            'dphone' =>'regex:/^1[3456789]\d{9}$/',
+            'addr' =>'required',
+
+        ],[
+            'dname.required'=>'用户名不能为空!!',
+            'dphone.regex'=>'手机号码格式不正确',
+            'addr.required'=>'收货地址不能为空',
+
+        ]);
+        $res = $request->only('dname','dphone','addr');
+
+        try{
+           
+            $rs = addr_message::where('did',$id)->update($res);
+
+
+            
+
+            return redirect('/home/addr')->with('success','修改成功');
+           
+        }catch(\Exception $e){
+
+            return back()->with('error','修改失败');
+
+        }
+    }
+
+    /**
+     *  设置默认地址. 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    
+    public function moren($id)
+    {
+        $res = addr_message::where('user_id',session('uid'))->where('moren','1')->get();
+        /*foreach ($res as $k=>$v)
+        {
+            $rs = $res[$k]->only('moren');
+            dump($rs);
+        }*/
+        $did = $res[0]['did'];
+        $rs['moren'] = '0';
+        $re['moren'] = '1';
+        
+
+
+        try{
+           
+            $a = addr_message::where('did',$did)->update($rs);
+            $b = addr_message::where('did',$id)->update($re);
+
+            return redirect('/home/addr')->with('success','修改成功');
+           
+        }catch(\Exception $e){
+
+            return back()->with('error','修改失败');
+
+        }  
+       
+        
+        // dd($moren);
+    }
+
+    /**
+     *  删除收货信息. 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    public function deladdr($id)
+    {
+         try{
+           
+            $res = addr_message::where('did',$id)->delete();
+
+           
+            return redirect('/home/addr')->with('success','删除成功');
+            
+        }catch(\Exception $e){
+
+            return back()->with('error','删除失败');
+
         }
     
     }

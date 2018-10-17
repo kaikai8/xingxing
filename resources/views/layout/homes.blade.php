@@ -13,6 +13,7 @@
 	
 	<!-- SLICK v1.6.0 CSS -->
 	<link rel="stylesheet" href="/homes/css/slick-1.6.0/slick.css" />
+	<link rel="stylesheet" href="/homes/css/select2/select2.css">
 	
 	<link rel="stylesheet" href="/homes/css/jquery.fancybox.css" />
 	<link rel="stylesheet" href="/homes/css/yith-woocommerce-compare/colorbox.css" />
@@ -23,7 +24,10 @@
 	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
 
 	<link rel="stylesheet" href="/homes/css/form.css" />
-	
+	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce-layout.css" />
+	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce-smallscreen.css" />
+	<link rel="stylesheet" type="text/css" href="/homes/css/zcity.css">
+
 	
 
 	
@@ -1083,6 +1087,7 @@
 			</div>
 		</div>
 	</div>
+	<script src="/homes/jquery/jquery.1.10.2.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="/homes/js/bootstrap.min.js"></script>
@@ -1102,6 +1107,8 @@
 	<script type="text/javascript" src="/homes/js/plugins.js"></script>
 	<script type="text/javascript" src="/homes/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="/homes/js/main.min.js"></script>
+	<script type="text/javascript" language="javascript" src="/homes/js/zcity.js"></script>
+
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
@@ -1127,6 +1134,8 @@
 					$element.toggle( 300 );
 				});
 			});
+			
+
 		});
    </script>
    
@@ -1139,8 +1148,10 @@
       	// The customizer requires postMessage and CORS (if the site is cross domain)
       	b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
    </script>
+
    	@section('js')
 	@show
+
    <!--<![endif]-->
    </body>
 </html>
