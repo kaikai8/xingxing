@@ -1087,7 +1087,7 @@
 			</div>
 		</div>
 	</div>
-	<script src="/homes/jquery/jquery.1.10.2.js"></script>
+	
 	<script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="/homes/js/bootstrap.min.js"></script>
