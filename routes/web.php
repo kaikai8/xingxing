@@ -98,4 +98,4 @@ Route::group(['middleware'=>'homelogin'],function()
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');
 	Route::get('/homes/goods/{id}','Home\GoodsController@gtods');
-	李子悦大帅哥
+

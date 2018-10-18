@@ -269,14 +269,15 @@
 												@foreach ($rx as $v)
 												@php
 												$gpic = DB::table('goodspicture')->where('gid',$v->gid)->pluck('pic_name');
-												
+
+												$fff = DB::table('gtype')->where('tid',$v->tid)->pluck('tname');
 												@endphp
 												
 												<div class="item-countdown product " id="product_sw_countdown_02">
 													<div class="item-wrap">
-														
+														@foreach ($fff as $f)
 														<div class="item-detail">
-															<a href="home/goods/{{$v->gid}}" title="{{$f->tname}}">
+															<a href="home/goods/{{$v->gid}}" title="{{$f}}">
 															<div class="item-content">
 																<!-- rating  -->
 																<div class="reviews-content">
@@ -337,7 +338,7 @@
 															</div>
 															
 														</div>
-														
+														@endforeach
 													</div>
 												</div>
 											
