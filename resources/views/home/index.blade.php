@@ -119,15 +119,17 @@
 																<div class="wpb_revslider_element wpb_content_element">
 																	<div id="main-slider" class="fullwidthbanner-container" style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 																		<div class="module slideshow no-margin">
-																			<div class="item">
-																				<a href="#"><img src="/homes/images/1903/slider2.jpg" alt="slider1" class="img-responsive" height="559"></a>
+																			@php
+																				$rs = DB::table('Lunbo')->where('auth','1')->get();
+																			@endphp
+																			@foreach($rs as $k=>$v)
+																			<div class="item" style = "width:778px;height:352px">
+																			
+																				<a href="#"><img src="{{$v->src}}" alt="slider1"></a>
+																			
 																			</div>
-																			<div class="item">
-																				<a href="#"><img src="/homes/images/1903/01_index_v1.jpg" alt="slider2" class="img-responsive" height="559"></a>
-																			</div>
-																			<div class="item">
-																				<a href="#"><img src="/homes/images/1903/slider3.jpg" alt="slider3" class="img-responsive" height="559"></a>
-																			</div>
+																			@endforeach
+																			
 																		</div>
 																		<div class="loadeding"></div>
 																	</div>

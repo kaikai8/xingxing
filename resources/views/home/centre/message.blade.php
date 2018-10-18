@@ -63,7 +63,7 @@
 											 </font></font><span class="required"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">*</font></font></span>
 										</label>
 										<input type="radio" name="sex" id="account_last_name" value="男" @if($rs->sex == '男') checked='checked' @endif> 男
-										<input type="radio" name="sex" id="account_last_name" value="男" @if($rs->sex == '女') checked='checked' @endif> 女
+										<input type="radio" name="sex" id="account_last_name" value="女" @if($rs->sex == '女') checked='checked' @endif> 女
 
 									</p>
 									

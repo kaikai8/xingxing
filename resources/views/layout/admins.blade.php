@@ -161,6 +161,18 @@
                 </ul>
             </div>
 
+             <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-th-list"></i>轮播管理</a>
+                        <ul class="closed">
+                            <li><a href="/admin/lunbo/create">添加轮播</a></li>
+                            <li><a href="/admin/lunbo">浏览轮播</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
         <div id="mws-navigation">
                 <ul>
                     <li>

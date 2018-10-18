@@ -50,6 +50,10 @@ Route::group(['middleware'=>'adminlogin'],function()
 	Route::resource('admin/gtype','admin\gtype\GtypeController');
 	// 后台商品信息
 	Route::resource('admin/goods','admin\goods\GoodsController');
+
+
+	//轮播图管理
+	Route::resource('admin/lunbo','Admin\LunboController');
 });
 
 
