@@ -79,6 +79,9 @@ class GoodsController extends Controller
         }else{
             echo 0;
         }
-
+    }
+    public function gtods($id)
+    {
+        return view('home.goods.gtods',['title'=>'商品']);
     }
 }

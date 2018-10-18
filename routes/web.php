@@ -92,15 +92,12 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::any('home/moren/{id}','Home\LoginController@moren');
 	//删除收货信息
 	Route::any('home/deladdr/{id}','Home\LoginController@deladdr');
-
-
+	// 加入购物车
+	Route::post('home/cart/{id}','Home\GoodsController@carts');
+	// 从购物车用ajax移除1条数据
+	Route::post('home/remove','Home\GoodsController@remove');
+	// 查看购物车
+	Route::any('home/cart','Home\GoodsController@cart');
 });
-
-// 商品详情页
-Route::get('home/goods/{id}','Home\GoodsController@goods');
-// 加入购物车
-Route::post('home/cart/{id}','Home\GoodsController@carts');
-// 从购物车用ajax移除1条数据
-Route::post('home/remove','Home\GoodsController@remove');
-// 查看购物车
-Route::any('home/cart','Home\GoodsController@cart');
+	// 商品详情页
+	Route::get('home/goods/{id}','Home\GoodsController@goods');

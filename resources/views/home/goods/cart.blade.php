@@ -16,9 +16,9 @@
 							<table class="shop_table shop_table_responsive cart" cellspacing="0">
 								<thead>
 									<tr>
-										<th class="product-remove">删除</th>
-										<th class="product-thumbnail">商品图片</th>
-										<th class="product-name">商品名</th>
+										<th style="width: 52px" class="product-remove">删除</th>
+										<th  class="product-thumbnail">商品图片</th>
+										<th style="width: 100px" class="product-name">商品名</th>
 										<th class="product-price">单价</th>
 										<th class="product-color">颜色</th>
 										<th class="product-size">规格</th>
@@ -46,11 +46,11 @@
 											<span class="woocommerce-Price-amount amount"><span class="woocommerce-Price-currencySymbol"></span>{{$v->c_price}}</span> 元	
 										</td>
 
-										<td class="product-name" data-title="Product">
+										<td class="" data-title="Product">
 											<span>{{$v->c_color}}</span>					
 										</td>
 
-										<td class="product-name" data-title="Product">
+										<td class="" data-title="Product">
 											<span>{{$v->c_size}}</span>					
 										</td>
 										

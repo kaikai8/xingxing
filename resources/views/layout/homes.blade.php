@@ -13,7 +13,6 @@
 	
 	<!-- SLICK v1.6.0 CSS -->
 	<link rel="stylesheet" href="/homes/css/slick-1.6.0/slick.css" />
-	<link rel="stylesheet" href="/homes/css/select2/select2.css">
 	
 	<link rel="stylesheet" href="/homes/css/jquery.fancybox.css" />
 	<link rel="stylesheet" href="/homes/css/yith-woocommerce-compare/colorbox.css" />
@@ -24,10 +23,7 @@
 	<link rel="stylesheet" href="/homes/css/yith-woocommerce-wishlist/style.css" />
 
 	<link rel="stylesheet" href="/homes/css/form.css" />
-	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce-layout.css" />
-	<link rel="stylesheet" href="/homes/css/woocommerce/woocommerce-smallscreen.css" />
-	<link rel="stylesheet" type="text/css" href="/homes/css/zcity.css">
-
+	
 	
 
 	
@@ -182,15 +178,13 @@
 									<div class="top-form top-form-minicart etrostore-minicart pull-right">
 										<div class="top-minicart-icon pull-right">
 											<i class="fa fa-shopping-cart"></i>
-											<a class="cart-contents" href="/home/cart" title="View your shopping cart">
-												<span class="minicart-number">??</span>
-											</a>
+									
 										</div>
 										
 										<div class="wrapp-minicart">
 											<div class="minicart-padding">
 												<div class="number-item">
-													There are <span>items</span> in your cart
+													购物车
 												</div>
 												
 												<ul class="minicart-content">
@@ -1087,7 +1081,10 @@
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 	
+=======
+>>>>>>> 0cf874006781cdc57aaa51297611c968d442b7b4
 	<script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="/homes/js/bootstrap.min.js"></script>
@@ -1107,8 +1104,6 @@
 	<script type="text/javascript" src="/homes/js/plugins.js"></script>
 	<script type="text/javascript" src="/homes/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="/homes/js/main.min.js"></script>
-	<script type="text/javascript" language="javascript" src="/homes/js/zcity.js"></script>
-
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
@@ -1134,8 +1129,6 @@
 					$element.toggle( 300 );
 				});
 			});
-			
-
 		});
    </script>
    
@@ -1148,10 +1141,8 @@
       	// The customizer requires postMessage and CORS (if the site is cross domain)
       	b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
    </script>
-
    	@section('js')
 	@show
-
    <!--<![endif]-->
    </body>
 </html>
