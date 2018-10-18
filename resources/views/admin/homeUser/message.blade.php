@@ -15,7 +15,7 @@
     <div class="mws-panel-body no-padding">
         <div role="grid" class="dataTables_wrapper" id="DataTables_Table_1_wrapper">
 
-            <form action="/admin/homeUser" method='get'>
+            <form action="/admin/homeUser/show" method='get'>
             <div id="DataTables_Table_1_length" class="dataTables_length">
                 <label>
                     显示
@@ -36,8 +36,8 @@
             </div>
             <div class="dataTables_filter" id="DataTables_Table_1_filter">
                 <label>
-                    用户名:
-                    <input type="text" name='uname' value='{{$request->uname}}' aria-controls="DataTables_Table_1">
+                    用户ID:
+                    <input type="text" name='uid' value='{{$request->uid}}' aria-controls="DataTables_Table_1">
                     
                 </label>
 
@@ -53,7 +53,7 @@
                     <tr role="row">
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1"  aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
-                            ID
+                            用户ID
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Browser: activate to sort column ascending">
@@ -62,22 +62,22 @@
                        
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">
-                            性别
+                            收货人姓名
                         </th>
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">
-                            电话
+                            收货人联系电话
                         </th>                       
                         
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">
-                            邮箱
+                            收货地址
                         </th>
 
                          <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" aria-label="Engine version: activate to sort column ascending">
-                            头像
+                            是否默认
                         </th>
                        
 
@@ -86,31 +86,44 @@
                 </thead>
                 <tbody role="alert" aria-live="polite" aria-relevant="all">
                     
-                    @foreach($rs as $k => $v)
+                    @foreach($res as $k => $v)
+                    
+                    @php
+                     $rs = DB::table('user')->where('uid',$v->user_id)->first();
+
+                    @endphp
                     <tr class="@if($k % 2 == 0)odd @else even @endif">
                         <td class="">
-                            {{$v->uid}}
+                            {{$v->user_id}}
                         </td>
                         <td class=" ">
-                            {{$v->uname}}
+                            {{$rs->uname}}
                         </td>
                        
                         <td class=" ">
-                            {{$res[$k]->sex}}                            
+                            {{$v->dname}}                            
                         </td>
                         
                         <td class=" ">
-                            {{$res[$k]->mphone}}                            
+                            {{$v->dphone}}                            
                         </td>
                         
                         
                         <td class=" ">
-                            {{$v->email}}                            
+                            {{$v->addr}}                            
                         </td>
                         
                          <td class=" ">
-                           
-                            <img src="{{$res[$k]->prefile}}" alt="" width = 120px>
+                            @if($v->moren == 0)
+
+                                不默认
+
+                            @elseif($v->moren == 1)
+
+                                默认
+
+                            @endif
+                            
                         </td>
                          
                     </tr>
@@ -170,7 +183,7 @@
 
             <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
                 
-                {{$rs->appends($request->all())->links()}}
+                {{$res->appends($request->all())->links()}}
             </div>
         </div>
     </div>

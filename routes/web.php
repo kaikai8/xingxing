@@ -42,6 +42,7 @@ Route::group(['middleware'=>'adminlogin'],function()
 
 	//前台用户模块
 	Route::resource('admin/homeUser','Admin\homeUserController');
+	// Route::any('admin/homeUser/message','Admin\homeUserController@message');
 
 	
 

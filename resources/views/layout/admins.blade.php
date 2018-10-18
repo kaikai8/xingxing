@@ -139,6 +139,8 @@
                         <ul class='closed'>
                             
                             <li><a href="/admin/homeUser">浏览用户</a></li>
+                            <li><a href="/admin/homeUser/show">收货地址浏览</a></li>
+
                         </ul>
                     </li>
                     
