@@ -42,4 +42,14 @@ class User extends Model
     {
         return $this->hasOne('App\Model\Home\muser','uid','user_id');
     }
+
+     /**
+     *  一对多 用户 用户收货信息 关联. 
+     *
+     *   @return \Illuminate\Http\Response 
+     */
+    public function addr_message()
+    {
+        return $this->hasMany('App\Model\Home\addr_message','uid','user_id');
+    }
 }

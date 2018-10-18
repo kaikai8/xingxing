@@ -59,7 +59,7 @@
 																			<ul class="dropdown-sub nav-level2">
 																				@foreach ($sf as $s)
 																				<li class="menu-laptop-desktop-accessories">
-																					<a href="/">
+																					<a href="/homes/goods/{{$s->tid}}">
 																						<span class="have-title">
 																							<span class="menu-title">{{$s->tname}}</span>
 																						</span>

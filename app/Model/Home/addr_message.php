@@ -1,21 +1,21 @@
 <?php
 
-namespace App\Model\Admin;
+namespace App\Model\Home;
 
 use Illuminate\Database\Eloquent\Model;
 
-class homeUser extends Model
+class addr_message extends Model
 {
-    /**
+     /**
      *  与模型关联的数据表. 
      *
      *   @var string 
      */
     
-    protected $table = 'user';
+    protected $table = 'addr_message';
 
     //主键
-    protected $primaryKey = 'uid';
+    protected $primaryKey = 'did';
 
     /**
      *  该模型是否被自动维护时间戳. 

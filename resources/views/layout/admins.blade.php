@@ -137,8 +137,10 @@
                     <li>
                         <a href="#"><i class="icon-users"></i>前台用户管理</a>
                         <ul class='closed'>
-                            <li><a href="/admin/adminUser/create">添加用户</a></li>
+                            
                             <li><a href="/admin/homeUser">浏览用户</a></li>
+                            <li><a href="/admin/homeUser/show">收货地址浏览</a></li>
+
                         </ul>
                     </li>
                     
@@ -148,10 +150,11 @@
             <div id="mws-navigation">
                 <ul>
                     
-                    <li>                        <a href="#"><i class="icon-users"></i>用户资料管理</a>
+                    <li>
+                        <a href="#"><i class="icon-users"></i>用户资料管理</a>
                         <ul class='closed'>
                             <li><a href="">浏览用户资料</a></li>
-                            <!-- <li><a href="/admin/homeUser"></a></li> -->
+                            
                         </ul>
                     </li>
                     

@@ -5,7 +5,10 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Hash;
-use App\Model\Admin\homeUser;
+use App\Model\Home\User;
+use App\Model\Home\muser;
+use App\Model\Home\addr_message;
+
 class homeUserController extends Controller
 {
     /**
@@ -15,30 +18,37 @@ class homeUserController extends Controller
      */
     public function index(Request $request)
     {
+
+        $res = muser::orderBy('user_id','asc')
+       
+        ->paginate($request->input('num',5));
+
+        
+        
         //多条件查询
-        $rs = homeUser::orderBy('uid','asc')
+        $rs = User::orderBy('uid','asc')
             ->where(function($query) use($request){
                 //检测关键字
                 $uname = $request->input('uname');
-                $sex = $request->input('sex');
+
                 //如果用户名不为空
                 if(!empty($uname)) {
                     $query->where('uname','like','%'.$uname.'%');
                 }
-                //如果性别不为空
-                if(!empty($sex)) {
-                    $query->where('sex','like','%'.$sex.'%');
-                }
+               
             })
             ->paginate($request->input('num', 5));
+
+            
 
            /* $num = $request->num;
             $*/
 
 
         return view('admin.homeUser.index',[
-            'title'=>'后台用户名列表页',
+            'title'=>'前台用户名列表页',
             'rs'=>$rs,
+            'res'=>$res,
             'request'=>$request
 
         ]);
@@ -51,7 +61,8 @@ class homeUserController extends Controller
      */
     public function create()
     {
-        //
+        
+
     }
 
     /**
@@ -71,9 +82,41 @@ class homeUserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request)
     {
-        //
+        
+        /*$rs = User::orderBy('uid','asc')
+        ->paginate($request->input('num', 5));*/
+
+
+        $res = addr_message::orderBy('user_id','asc')
+        ->where(function($query) use($request){
+                //检测关键字
+                $uid = $request->input('uid');
+
+                //如果用户名不为空
+                if(!empty($uid)) {
+                    $query->where('user_id','like',$uid);
+                }
+               
+            })
+        ->paginate($request->input('num',5)); 
+        
+       
+
+            
+
+           /* $num = $request->num;
+            $*/
+
+
+        return view('admin.homeUser.message',[
+            'title'=>'前台收货信息列表页',
+            // 'rs'=>$rs,
+            'res'=>$res,
+            'request'=>$request
+
+        ]);
     }
 
     /**

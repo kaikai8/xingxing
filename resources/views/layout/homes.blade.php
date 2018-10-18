@@ -178,15 +178,13 @@
 									<div class="top-form top-form-minicart etrostore-minicart pull-right">
 										<div class="top-minicart-icon pull-right">
 											<i class="fa fa-shopping-cart"></i>
-											<a class="cart-contents" href="/home/cart" title="View your shopping cart">
-												<span class="minicart-number">??</span>
-											</a>
+									
 										</div>
 										
 										<div class="wrapp-minicart">
 											<div class="minicart-padding">
 												<div class="number-item">
-													There are <span>items</span> in your cart
+													购物车
 												</div>
 												
 												<ul class="minicart-content">

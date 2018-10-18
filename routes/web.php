@@ -42,6 +42,7 @@ Route::group(['middleware'=>'adminlogin'],function()
 
 	//前台用户模块
 	Route::resource('admin/homeUser','Admin\homeUserController');
+	// Route::any('admin/homeUser/message','Admin\homeUserController@message');
 
 	
 
@@ -76,15 +77,24 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::any('home/pass','Home\LoginController@pass');
 	Route::any('home/dopass','Home\LoginController@dopass');
 	//收获信息
-	Route::any('home/addr','Home\LoginControloler@addr');
-
+	Route::any('home/addr','Home\LoginController@addr');
+	//添加收货信息
+	Route::any('home/doaddr','Home\LoginController@doaddr');
+	Route::any('home/add_addr','Home\LoginController@add_addr');
+	//修改收货信息
+	Route::any('home/{id}/upaddr','Home\LoginController@upaddr');
+	Route::any('home/doupaddr/{id}','Home\LoginController@doupaddr');
+	//设置默认地址
+	Route::any('home/moren/{id}','Home\LoginController@moren');
+	//删除收货信息
+	Route::any('home/deladdr/{id}','Home\LoginController@deladdr');
+	// 加入购物车
+	Route::post('home/cart/{id}','Home\GoodsController@carts');
+	// 从购物车用ajax移除1条数据
+	Route::post('home/remove','Home\GoodsController@remove');
+	// 查看购物车
+	Route::any('home/cart','Home\GoodsController@cart');
 });
-
-// 商品详情页
-Route::get('home/goods/{id}','Home\GoodsController@goods');
-// 加入购物车
-Route::post('home/cart/{id}','Home\GoodsController@carts');
-// 从购物车用ajax移除1条数据
-Route::post('home/remove','Home\GoodsController@remove');
-// 查看购物车
-Route::any('home/cart','Home\GoodsController@cart');
+	// 商品详情页
+	Route::get('home/goods/{id}','Home\GoodsController@goods');
+	Route::get('/homes/goods/{id}','Home\GoodsController@gtods');
