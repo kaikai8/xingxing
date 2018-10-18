@@ -178,8 +178,8 @@
 									<div class="top-form top-form-minicart etrostore-minicart pull-right">
 										<div class="top-minicart-icon pull-right">
 											<i class="fa fa-shopping-cart"></i>
-											<a class="cart-contents" href="cart.html" title="View your shopping cart">
-												<span class="minicart-number">2</span>
+											<a class="cart-contents" href="/home/cart" title="View your shopping cart">
+												<span class="minicart-number">??</span>
 											</a>
 										</div>
 										
@@ -336,26 +336,26 @@
 										<div id="ResMenuprimary_menu" class="collapse menu-responsive-wrapper">
 											<ul id="menu-primary-menu" class="etrostore_resmenu">
 												<li><a href="/">首页</a></li>
-												<li><a href="cart.html">购物车</a></li>
-												<li><a href="checkout.html">查看</a></li>
+												<li><a href="/home/cart">购物车</a></li>
+												<li><a href="#">查看</a></li>
 												<!-- <li><a href="my_account.html">个人中心</a></li> -->
-												<li><a href="shop.html">店铺</a></li>
-												<li><a href="simple_product.html">简单的商品</a></li>
-												<li><a href="about_us.html">关于我们</a></li>
-												<li><a href="contact_us.html">联系我们</a></li>
+												<li><a href="#">店铺</a></li>
+												<li><a href="#">简单的商品</a></li>
+												<li><a href="#">关于我们</a></li>
+												<li><a href="#">联系我们</a></li>
 											</ul>
 										</div>
 									</div>
 									
 									<ul id="menu-primary-menu-1" class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
 										<li><a href="/">首页</a></li>
-										<li><a href="cart.html">购物车</a></li>
-										<li><a href="checkout.html">查看</a></li>
+										<li><a href="/home/cart">购物车</a></li>
+										<li><a href="#">查看</a></li>
 										<!-- <li><a href="my_account.html">个人中心</a></li> -->
-										<li><a href="shop.html">店铺</a></li>
-										<li><a href="simple_product.html">简单的商品</a></li>
-										<li><a href="about_us.html">关于我们</a></li>
-										<li><a href="contact_us.html">联系我们</a></li>
+										<li><a href="#">店铺</a></li>
+										<li><a href="#">简单的商品</a></li>
+										<li><a href="#">关于我们</a></li>
+										<li><a href="#">联系我们</a></li>
 									</ul>
 								</div>
 							</nav>

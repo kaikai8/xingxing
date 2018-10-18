@@ -82,3 +82,9 @@ Route::group(['middleware'=>'homelogin'],function()
 
 // 商品详情页
 Route::get('home/goods/{id}','Home\GoodsController@goods');
+// 加入购物车
+Route::post('home/cart/{id}','Home\GoodsController@carts');
+// 从购物车用ajax移除1条数据
+Route::post('home/remove','Home\GoodsController@remove');
+// 查看购物车
+Route::any('home/cart','Home\GoodsController@cart');
