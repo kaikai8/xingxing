@@ -278,7 +278,7 @@
 													<div class="item-wrap">
 														
 														<div class="item-detail">
-															
+															<a href="home/goods/{{$v->gid}}" title="{{$f->tname}}">
 															<div class="item-content">
 																<!-- rating  -->
 																<div class="reviews-content">
@@ -296,7 +296,7 @@
 																@endphp
 																@foreach ($ff as $f)
 																<h4>
-																	<a href="home/goods/{{$v->gid}}" title="{{$f->tname}}">{{$v->gname}}</a>
+																	{{$v->gname}}
 																</h4>
 																@endforeach
 																<!-- Price -->
@@ -314,7 +314,7 @@
 																
 																<div class="product-countdown" data-date="1519776000" data-price="$250" data-starttime="1483747200" data-cdtime="1519776000" data-id="product_sw_countdown_02"></div>
 															</div>
-															
+															</a>
 															<div class="item-image-countdown">
 																<span class="onsale"></span>
 																
@@ -327,33 +327,14 @@
 																</a>
 																
 																<!-- 加入购物车, wishlist, compare -->
-																<div class="item-bottom clearfix">
-																	<a rel="nofollow" href="#" class="button product_type_simple add_to_cart_button ajax_add_to_cart" title="加入购物车">加入购物车</a>
-																	
-																	<a href="javascript:void(0)" class="compare button" rel="nofollow" title="Add to Compare">Compare</a>
-																	
-																	<div class="yith-wcwl-add-to-wishlist add-to-wishlist-248">
-																		<div class="yith-wcwl-add-button show" style="display:block">
-																			<a href="#" rel="nofollow" class="add_to_wishlist">Add to Wishlist</a>
-																			<img src="/homes/images/wpspin_light.gif" class="ajax-loading" alt="loading" width="16" height="16" style="visibility:hidden" />
+																<div class="item-bottom clearfix" style="padding-left: 35px; ">
+																	<a rel="nofollow" href="/home/goods/{{$v->gid}}" class="button product_type_simple " title="加入购物车">加入购物车</a>
+
+																	<div class="yith-wcwl-add-to-wishlist ">
+																		<div class="show"  >
+																			<a style="display:block" href="#" title="心愿单" >心愿单</a>
 																		</div>
-																	   
-																		<div class="yith-wcwl-wishlistaddedbrowse hide" style="display:none;">
-																			<span class="feedback">Product added!</span>
-																			<a href="#" rel="nofollow">Browse Wishlist</a>
-																		</div>
-																		
-																		<div class="yith-wcwl-wishlistexistsbrowse hide" style="display:none">
-																			<span class="feedback">The product is already in the wishlist!</span>
-																			<a href="#" rel="nofollow">Browse Wishlist</a>
-																		</div>
-																		
-																		<div style="clear:both"></div>
-																		<div class="yith-wcwl-wishlistaddresponse"></div>
 																	</div>
-																	
-																	<div class="clear"></div>
-																	<a href="#" data-fancybox-type="ajax" class="sm_quickview_handler-list fancybox fancybox.ajax">Quick View </a>
 																</div>
 															</div>
 															
