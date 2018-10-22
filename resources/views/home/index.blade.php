@@ -273,11 +273,11 @@
 												$fff = DB::table('gtype')->where('tid',$v->tid)->pluck('tname');
 												@endphp
 												
-												<div class="item-countdown product " id="product_sw_countdown_02">
+												<div class="item-countdown product " id="product_sw_countdown_02" >
 													<div class="item-wrap">
 														@foreach ($fff as $f)
-														<div class="item-detail">
-															<a href="home/goods/{{$v->gid}}" title="{{$f}}">
+														<div class="item-detail" title="{{$f}}">
+															<a href="home/goods/{{$v->gid}}" >
 															<div class="item-content">
 																<!-- rating  -->
 																<div class="reviews-content">
@@ -318,7 +318,7 @@
 																<span class="onsale"></span>
 																
 																<a href="/home/goods/{{$v->gid}}">
-																	<div class="product-thumb-hover">
+																	<div  class="product-thumb-hover">
 																		<img 	width="300" height="300" src="{{$gpic[0]}}" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" 
 																				
 																				sizes="(max-width: 300px) 100vw, 300px" />

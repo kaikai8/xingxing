@@ -335,7 +335,7 @@
 											<ul id="menu-primary-menu" class="etrostore_resmenu">
 												<li><a href="/">首页</a></li>
 												<li><a href="/home/cart">购物车</a></li>
-												<li><a href="#">查看</a></li>
+												<li><a href="/home/centre">个人中心</a></li>
 												<!-- <li><a href="my_account.html">个人中心</a></li> -->
 												<li><a href="#">店铺</a></li>
 												<li><a href="#">简单的商品</a></li>
@@ -348,7 +348,7 @@
 									<ul id="menu-primary-menu-1" class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
 										<li><a href="/">首页</a></li>
 										<li><a href="/home/cart">购物车</a></li>
-										<li><a href="#">查看</a></li>
+										<li><a href="/home/centre">个人中心</a></li>
 										<!-- <li><a href="my_account.html">个人中心</a></li> -->
 										<li><a href="#">店铺</a></li>
 										<li><a href="#">简单的商品</a></li>
@@ -1082,6 +1082,7 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/homes/js/jquery/jquery-1.8.3.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="/homes/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/js.cookie.min.js"></script>
