@@ -101,3 +101,10 @@ Route::group(['middleware'=>'homelogin'],function()
 });
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');
+	// 商品页
+	Route::get('/homes/goods/{id}','Home\GoodsController@gtods');
+	// 结算页
+	Route::post('/home/jiesuan','Home\GoodsController@jiesuan');
+	// ajax传参小计到数据库
+	Route::post('home/gmsl','Home\GoodsController@gmsl');
+
