@@ -119,17 +119,14 @@
 																<div class="wpb_revslider_element wpb_content_element">
 																	<div id="main-slider" class="fullwidthbanner-container" style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 																		<div class="module slideshow no-margin">
-																			@php
-																				$rs = DB::table('Lunbo')->where('auth','1')->get();
-																			@endphp
-																			@foreach($rs as $k=>$v)
-																			<div class="item" style = "width:778px;height:352px">
-																			
-																				<a href="#"><img src="{{$v->src}}" alt="slider1"></a>
-																			
+																		@php
+																			$res = DB::table('lunbo')->where('auth','1')->get();
+																		@endphp
+																		@foreach($res as $k=>$v)
+																			<div class="item" style="width:780px;height:352px">
+																				<a href="{{$v->src}}"><img src="{{$v->profile}}" alt="slider1" class="img-responsive"></a>
 																			</div>
-																			@endforeach
-																			
+																		@endforeach
 																		</div>
 																		<div class="loadeding"></div>
 																	</div>
@@ -332,8 +329,8 @@
 																	<a rel="nofollow" href="/home/goods/{{$v->gid}}" class="button product_type_simple " title="加入购物车">加入购物车</a>
 
 																	<div class="yith-wcwl-add-to-wishlist ">
-																		<div class="show"  >
-																			<a style="display:block" href="#" title="心愿单" >心愿单</a>
+																		<div class="show">
+																			<a style="display:block" href="/home/love" title="心愿单" >心愿单</a>
 																		</div>
 																	</div>
 																</div>
@@ -352,7 +349,6 @@
 							</div>
 						</div>
 					</div>
-					
 					
 					
 					<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">

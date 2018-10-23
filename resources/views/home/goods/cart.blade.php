@@ -3,6 +3,8 @@
 @section('title',$title)
 
 @section('content')
+
+
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <div style="height: 36px"></div>
 

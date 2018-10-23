@@ -70,24 +70,24 @@ class LunboController extends Controller
     {
        
 
-        $res = $request->except('_token','src');
+        $res = $request->except('_token','profile');
 
 
 
         //文件上传
-        if($request->hasFile('src')){
+        if($request->hasFile('profile')){
 
             //自定义名字
             $name = time().rand(1111,9999);
 
             //获取后缀
-            $suffix = $request->file('src')->getClientOriginalExtension(); 
+            $suffix = $request->file('profile')->getClientOriginalExtension(); 
 
             //移动
-            $request->file('src')->move('uploads',$name.'.'.$suffix);
+            $request->file('profile')->move('uploads',$name.'.'.$suffix);
         }
 
-        $res['src'] = '/uploads/'.$name.'.'.$suffix;
+        $res['profile'] = '/uploads/'.$name.'.'.$suffix;
 
 
         try{
@@ -142,21 +142,21 @@ class LunboController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $res = $request->except('_token','_method','src');
+        $res = $request->except('_token','_method','profile');
 
          //文件上传
-        if($request->hasFile('src')){
+        if($request->hasFile('profile')){
 
             //自定义名字
             $name = time().rand(1111,9999);
 
             //获取后缀
-            $suffix = $request->file('src')->getClientOriginalExtension(); 
+            $suffix = $request->file('profile')->getClientOriginalExtension(); 
 
             //移动
-            $request->file('src')->move('uploads',$name.'.'.$suffix);
+            $request->file('profile')->move('uploads',$name.'.'.$suffix);
 
-            $res['src'] = '/uploads/'.$name.'.'.$suffix;
+            $res['profile'] = '/uploads/'.$name.'.'.$suffix;
 
         }
 

@@ -73,7 +73,7 @@ class GoodsController extends Controller
     // 在购物车遍历出来
     public function cart()
     {
-        $cart = Cart::get();
+        $cart = Cart::where('uid',session('uid'))->get();
         // dd($cart);
         return view('home.goods.cart',['title'=>'购物车','cart'=>$cart]);
     }

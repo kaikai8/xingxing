@@ -28,8 +28,15 @@
                 <div class="mws-form-row">
                     <label class="mws-form-label">轮播图</label>
                     <div class="mws-form-item">
-                        <img src="{{$res->src}}" alt="" width='100px'>
-                        <div style="position: relative;" class="fileinput-holder"><input type="file" name='src' style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
+                        <img src="{{$res->profile}}" alt="" width='100px'>
+                        <div style="position: relative;" class="fileinput-holder"><input type="file" name='profile' style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
+                    </div>
+                </div>
+
+                 <div class="mws-form-row">
+                    <label class="mws-form-label">链接名</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='src' value="{{$res->src}}">
                     </div>
                 </div>
                 
@@ -38,7 +45,7 @@
                     <div class="mws-form-item clearfix">
                         <ul class="mws-form-list inline">
                             <li><label><input type="radio" name='auth' value='1'  @if($res->auth == 1) checked='checked' @endif> 启用</label></li>
-                            <li><label><input type="radio" name='auth' value='0'  @if($res->auth == 2) checked='checked' @endif> 禁用</label></li>
+                            <li><label><input type="radio" name='auth' value='0'  @if($res->auth == 0) checked='checked' @endif> 禁用</label></li>
                         
                         </ul>
                     </div>

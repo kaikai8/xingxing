@@ -102,7 +102,7 @@
 
                         <td class=" " style = "text-align:center">
                             
-                           @if($v->auth == 1)
+                            @if($v->auth == 1)
                                 启用
                             @elseif($v->auth == 0)
                                 禁用

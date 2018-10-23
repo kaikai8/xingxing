@@ -51,6 +51,11 @@ Route::group(['middleware'=>'adminlogin'],function()
 	// 后台商品信息
 	Route::resource('admin/goods','admin\goods\GoodsController');
 
+	//友情链接管理
+	Route::resource('admin/link','admin\linkController');
+	//广告管理
+	Route::resource('admin/guanggao','admin\guanggaoController');
+
 
 	//轮播图管理
 	Route::resource('admin/lunbo','Admin\LunboController');
@@ -98,6 +103,11 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('home/remove','Home\GoodsController@remove');
 	// 查看购物车
 	Route::any('home/cart','Home\GoodsController@cart');
+	//商品收藏页
+	Route::resource('home/love','Home\LoveController');
+	Route::any('home/addlove/{id}','Home\LoveController@addlove');
+	Route::any('home/delove/{id}','Home\LoveController@delove');
+
 });
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');

@@ -129,7 +129,7 @@ class LoveController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function uplove($id)
+    public function delove($id)
     {
         try{
            

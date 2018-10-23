@@ -32,7 +32,9 @@
 	<link rel="stylesheet" href="/homes/css/custom.css" />
 	<link rel="stylesheet" href="/homes/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" />
-	<link rel="stylesheet" href="/homes/css/app-responsive.css" /> 
+	<link rel="stylesheet" href="/homes/css/app-responsive.css" />
+	<!-- <link rel="stylesheet" href="/homes/css/zcity.css" /> -->
+
 </head>
 
 <body class="page page-id-6 home-style1">
@@ -131,7 +133,7 @@
 					<div class="rows">
 						<!-- LOGO -->
 						<div class="etrostore-logo pull-left">
-							<a href="#">
+							<a href="/">
 								<img src="/homes/images/icons/logo-orange.png" alt="Shoopy">
 							</a>
 						</div>
@@ -143,28 +145,32 @@
 										<div class="topsearch-entry">
 											<form method="get" action="">
 												<div>
-												   <input type="text" value="" name="s" placeholder="Enter your keyword...">	
+												   <input type="text" value="" name="gname" placeholder="输入你的关键词">	
 													<div class="cat-wrapper">
 														<label class="label-search">
 															<select name="search_category" class="s1_option">
-															
+																@php
+																	$res = DB::table('gtype')->where('pid','0')->get();
+																@endphp
+																
 																<option value="">所有类别</option>
-																<option value="8">电脑 & Laptops</option>
-																<option value="13">Computers & Networking</option>
-																<option value="14">Smartphones & Tablet</option>
-																<option value="15">Home Furniture</option>
-																<option value="16">Home Appliances</option>
-																<option value="17">Electronic Component</option>
-																<option value="18">Household Goods</option>
-																<option value="32">Appliances</option>
-																<option value="49">Accessories</option>
-																<option value="51">Electronics</option>
-																<option value="78">Televisions</option>
-																<option value="80">Cameras & Accessories</option>
+																@foreach($res as $k=>$v)
+																<option value="{{$v->tid}}">{{$v->tname}}</option>
+																<!-- <option value="{{$v->tid}}">Computers & Networking</option>
+																<option value="{{$v->tid}}">Smartphones & Tablet</option>
+																<option value="{{$v->tid}}">Home Furniture</option>
+																<option value="{{$v->tid}}">Home Appliances</option>
+																<option value="{{$v->tid}}">Electronic Component</option>
+																<option value="{{$v->tid}}">Household Goods</option>
+																<option value="{{$v->tid}}">Appliances</option>
+																<option value="{{$v->tid}}">Accessories</option>
+																<option value="{{$v->tid}}">Electronics</option>
+																<option value="{{$v->tid}}">Televisions</option>
+																<option value="{{$v->tid}}">Cameras & Accessories</option> -->
+																@endforeach
 															</select>
 														</label>
 													</div>
-													
 													<button type="submit" title="Search" class="fa fa-search button-search-pro form-button"></button>
 												</div>
 											</form>
@@ -298,7 +304,7 @@
 								<div class="widget-inner">
 									<ul id="menu-wishlist" class="menu">
 										<li class="menu-wishlist">
-											<a class="item-link" href="#">
+											<a class="item-link" href="/home/love">
 												<span class="menu-title">Wishlist</span>
 											</a>
 										</li>
@@ -337,10 +343,8 @@
 												<li><a href="/home/cart">购物车</a></li>
 												<li><a href="/home/centre">个人中心</a></li>
 												<!-- <li><a href="my_account.html">个人中心</a></li> -->
-												<li><a href="#">店铺</a></li>
-												<li><a href="#">简单的商品</a></li>
-												<li><a href="#">关于我们</a></li>
-												<li><a href="#">联系我们</a></li>
+												<li><a href="/home/love">我的收藏</a></li>
+												<li><a href="#">我的订单</a></li>
 											</ul>
 										</div>
 									</div>
@@ -350,10 +354,9 @@
 										<li><a href="/home/cart">购物车</a></li>
 										<li><a href="/home/centre">个人中心</a></li>
 										<!-- <li><a href="my_account.html">个人中心</a></li> -->
-										<li><a href="#">店铺</a></li>
-										<li><a href="#">简单的商品</a></li>
-										<li><a href="#">关于我们</a></li>
-										<li><a href="#">联系我们</a></li>
+										<li><a href="/home/love">我的收藏</a></li>
+										<li><a href="#">我的订单</a></li>
+										
 									</ul>
 								</div>
 							</nav>
@@ -539,7 +542,7 @@
 				<div class="vc_row wpb_row vc_row-fluid">
 					<div class="wpb_column vc_column_container vc_col-sm-12">
 						<div class="vc_column-inner ">
-							<div class="wpb_wrapper">
+							<!-- <div class="wpb_wrapper">
 								<div id="sw_testimonial01" class="testimonial-slider client-wrapper-b carousel slide " data-interval="0">
 									<div class="carousel-cl nav-custom">
 										<a class="prev-test fa fa-angle-left" href="#sw_testimonial01" role="button" data-slide="prev"><span></span></a>
@@ -637,7 +640,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 					</div>
 				</div>
@@ -646,7 +649,7 @@
 					<div class="container float wpb_column vc_column_container vc_col-sm-12">
 						<div class="vc_column-inner ">
 							<div class="wpb_wrapper">
-								<div class="vc_row wpb_row vc_inner vc_row-fluid footer-top">
+								<!-- <div class="vc_row wpb_row vc_inner vc_row-fluid footer-top">
 									<div class="wpb_column vc_column_container vc_col-sm-8">
 										<div class="vc_column-inner ">
 											<div class="wpb_wrapper">
@@ -714,7 +717,7 @@
 											</div>
 										</div>
 									</div>
-								</div>
+								</div> -->
 								
 								<div class="vc_row wpb_row vc_inner vc_row-fluid footer-bottom">
 									<div class="item-res wpb_column vc_column_container vc_col-sm-6 vc_col-lg-4 vc_col-md-4 vc_col-xs-12">
@@ -766,42 +769,42 @@
 											<div class="wpb_wrapper">
 												<div class="vc_wp_custommenu wpb_content_element">
 													<div class="widget widget_nav_menu">
-														<h2 class="widgettitle">Support</h2>
+														<h2 class="widgettitle">支持</h2>
 														
 														<ul id="menu-support" class="menu">
 															<li class="menu-product-support">
 																<a class="item-link" href="#">
-																	<span class="menu-title">Product Support</span>
+																	<span class="menu-title">产品支持</span>
 																</a>
 															</li>
 															
 															<li class="menu-pc-setup-support-services">
 																<a class="item-link" href="#">
-																	<span class="menu-title">PC Setup & Support Services</span>
+																	<span class="menu-title">电脑设置和支持服务</span>
 																</a>
 															</li>
 															
 															<li class="menu-extended-service-plans">
 																<a class="item-link" href="#">
-																	<span class="menu-title">Extended Service Plans</span>
+																	<span class="menu-title">扩展服务计划</span>
 																</a>
 															</li>
 															
 															<li class="menu-community">
 																<a class="item-link" href="#">
-																	<span class="menu-title">Community</span>
+																	<span class="menu-title">社区</span>
 																</a>
 															</li>
 															
 															<li class="menu-product-manuals">
 																<a class="item-link" href="#">
-																	<span class="menu-title">Product Manuals</span>
+																	<span class="menu-title">产品手册</span>
 																</a>
 															</li>
 															
 															<li class="menu-product-registration">
 																<a class="item-link" href="#">
-																	<span class="menu-title">Product Registration</span>
+																	<span class="menu-title">产品注册</span>
 																</a>
 															</li>
 														</ul>
@@ -816,57 +819,21 @@
 											<div class="wpb_wrapper">
 												<div class="vc_wp_custommenu wpb_content_element">
 													<div class="widget widget_nav_menu">
-														<h2 class="widgettitle">Your Links</h2>
-														
+														<h2 class="widgettitle">你的链接</h2>
+														@php
+															$res = DB::table('link')->where('link_auth','1')->get();
+														@endphp
 														<ul id="menu-your-links" class="menu">
+														
+														@foreach($res as $k=>$v)
 															<li class="menu-my-account">
-																<a class="item-link" href="my_account.html">
-																	<span class="menu-title">My Account</span>
+																<a class="item-link" href="{{$v->link_src}}">
+																	<span class="menu-title">{{$v->link_name}}</span>
 																</a>
 															</li>
-															
-															<li class="menu-order-tracking">
-																<a class="item-link" href="#">
-																	<span class="menu-title">Order Tracking</span>
-																</a>
-															</li>
-															
-															<li class="menu-watch-list">
-																<a class="item-link" href="#">
-																	<span class="menu-title">Watch List</span>
-																</a>
-															</li>
-															
-															<li class="menu-customer-service">
-																<a class="item-link" href="#">
-																	<span class="menu-title">Customer Service</span>
-																</a>
-															</li>
-															
-															<li class="menu-returns-exchanges">
-																<a class="item-link" href="#">
-																	<span class="menu-title">Returns / Exchanges</span>
-																</a>
-															</li>
-															
-															<li class="menu-faqs">
-																<a class="item-link" href="#">
-																	<span class="menu-title">FAQs</span>
-																</a>
-															</li>
-															
-															<li class="menu-financing">
-																<a class="item-link" href="#">
-																	<span class="menu-title">Financing</span>
-																</a>
-															</li>
-															
-															<li class="menu-card">
-																<a class="item-link" href="#">
-																	<span class="menu-title">Card</span>
-																</a>
-															</li>
+															@endforeach
 														</ul>
+														
 													</div>
 												</div>
 											</div>
@@ -1081,12 +1048,12 @@
 			</div>
 		</div>
 	</div>
-<<<<<<< HEAD
-	
-=======
->>>>>>> 0cf874006781cdc57aaa51297611c968d442b7b4
-	<script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
-	<script type="text/javascript" src="/homes/js/jquery/jquery-1.8.3.min.js"></script>
+
+	<!-- <script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
+	<script type="text/javascript" src="/homes/js/jquery/jquery-1.8.3.min.js"></script> -->
+	<script type="text/javascript" src="/homes/js/jquery/jquery-1.11.3.min.js"></script>
+
+
 	<script type="text/javascript" src="/homes/js/jquery/jquery-migrate.min.js"></script>
 	<script type="text/javascript" src="/homes/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/js.cookie.min.js"></script>
@@ -1105,6 +1072,8 @@
 	<script type="text/javascript" src="/homes/js/plugins.js"></script>
 	<script type="text/javascript" src="/homes/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="/homes/js/main.min.js"></script>
+	<!-- <script type="text/javascript" src="/homes/js/zcity.js"></script> -->
+
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;
