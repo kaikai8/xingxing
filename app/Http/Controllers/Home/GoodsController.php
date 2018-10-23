@@ -141,7 +141,30 @@ class GoodsController extends Controller
             echo 0;
         }
     }
+    // 订单详情
+    public function xiangqing(Request $request)
+    {
+        
+        
+        // dd($re);
+       
+        $zj =$request->input('zongjia');
+        $res = [];
+        $res['gid'] = $request->post('gid');
+        $res['uid'] = session('uid');
+        $res['ord'] = '2018'.random_int(1111, 9999).time().$res['uid'];
+        $res['otime'] = time();
+        // dd($res);
+        $info = DB::table('orders')->insert($res);
+       if($info){
+                $ress =DB::table('orders')->get();
+                // dd($ress);
+                return view('home.goods.xiangqing',['title'=>'我的订单','shang'=>$shang,'zj'=>$zj]);
+                 
+            }else{
+
+            return back()->with('success','下单失败');
+
+            }
+    }
 }
-// $uid = session('uid');
-// $uname = DB::table('user')->where('uid',$uid)->pluck('uname');
-//         dd($uname);

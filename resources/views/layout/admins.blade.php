@@ -186,10 +186,10 @@
             <div id="mws-navigation">
                 <ul>
                     <li>
-                        <a href="#"><i class="icon-th-list"></i>店铺管理</a>
+                        <a href="#"><i class="icon-th-list"></i>订单管理</a>
                         <ul class="closed">
-                            <li><a href="#">审核店铺</a></li>
-                            <li><a href="#">浏览店铺</a></li>
+                            <li><a href="#">管理订单</a></li>
+                            <li><a href="#">浏览订单</a></li>
                         </ul>
                     </li>
                 </ul>

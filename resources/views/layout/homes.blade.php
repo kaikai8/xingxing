@@ -33,6 +33,8 @@
 	<link rel="stylesheet" href="/homes/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" />
 	<link rel="stylesheet" href="/homes/css/app-responsive.css" /> 
+	<!-- <link rel="stylesheet" href="/homes/css/zcity.css" />  -->
+
 </head>
 
 <body class="page page-id-6 home-style1">
@@ -1101,6 +1103,8 @@
 	<script type="text/javascript" src="/homes/js/plugins.js"></script>
 	<script type="text/javascript" src="/homes/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="/homes/js/main.min.js"></script>
+	<script type="text/javascript" src="/homes/js/zcity.js"></script>
+
    
 	<script type="text/javascript">
 		var sticky_navigation_offset_top = $("#header .header-bottom").offset().top;

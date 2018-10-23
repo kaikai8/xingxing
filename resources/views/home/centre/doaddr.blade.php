@@ -5,6 +5,7 @@
 
 
 @section('content')
+<link rel="stylesheet" href="/homes/css/zcity.css" /> 
 <div class="container">
     <div class="row">
         <div id="contents" role="main" class="main-page  col-lg-12 col-md-12 col-sm-12 col-xs-12">
