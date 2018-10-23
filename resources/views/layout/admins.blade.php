@@ -207,7 +207,7 @@
                 </ul>
             </div>
 
-             <div id="mws-navigation">
+            <div id="mws-navigation">
                 <ul>
                     <li>
                         <a href="#"><i class="icon-th-list"></i>友情链接管理</a>
@@ -216,13 +216,21 @@
                             <li><a href="/admin/link">浏览友情链接</a></li>
                         </ul>
                     </li>
-                </ul>
-            </div>         
-        
-
-        </div>
-        
-        <!-- Main Container Start -->
+                </ul>        
+            </div>
+             <div id="mws-navigation">
+                <ul>
+                    <li>
+                        <a href="#"><i class="icon-th-list"></i>订单管理</a>
+                        <ul class="closed">
+                            <li><a href="#">添加订单</a></li>
+                            <li><a href="#">浏览订单</a></li>
+                        </ul>
+                    </li>
+                </ul>        
+            </div>       
+                      
+                    
         <div id="mws-container" class="clearfix">
         
         	<!-- Inner Container Start -->

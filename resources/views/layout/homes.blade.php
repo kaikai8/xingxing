@@ -32,8 +32,9 @@
 	<link rel="stylesheet" href="/homes/css/custom.css" />
 	<link rel="stylesheet" href="/homes/css/app-orange.css" id="theme_color" />
 	<link rel="stylesheet" href="" id="rtl" />
-	<link rel="stylesheet" href="/homes/css/app-responsive.css" />
-	<!-- <link rel="stylesheet" href="/homes/css/zcity.css" /> -->
+
+	<link rel="stylesheet" href="/homes/css/app-responsive.css" /> 
+	<!-- <link rel="stylesheet" href="/homes/css/zcity.css" />  -->
 
 </head>
 
@@ -1049,9 +1050,11 @@
 		</div>
 	</div>
 
+
 	<!-- <script type="text/javascript" src="/homes/js/jquery/jquery.min.js"></script>
 	<script type="text/javascript" src="/homes/js/jquery/jquery-1.8.3.min.js"></script> -->
 	<script type="text/javascript" src="/homes/js/jquery/jquery-1.11.3.min.js"></script>
+
 
 
 	<script type="text/javascript" src="/homes/js/jquery/jquery-migrate.min.js"></script>
@@ -1073,6 +1076,7 @@
 	<script type="text/javascript" src="/homes/js/megamenu.min.js"></script>
 	<script type="text/javascript" src="/homes/js/main.min.js"></script>
 	<!-- <script type="text/javascript" src="/homes/js/zcity.js"></script> -->
+
 
    
 	<script type="text/javascript">

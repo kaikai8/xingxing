@@ -118,3 +118,6 @@ Route::group(['middleware'=>'homelogin'],function()
 	// ajax传参小计到数据库
 	Route::post('home/gmsl','Home\GoodsController@gmsl');
 
+	// 订单详情
+	Route::post('home/xiangqing','Home\GoodsController@xiangqing');
+

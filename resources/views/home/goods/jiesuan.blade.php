@@ -1,15 +1,14 @@
-
-
-
 @extends('layout.homes')
 
 @section('title',$title)
 
 @section('content')
 
+<meta name="csrf-token" content="{{ csrf_token() }}">
     <div class="container">
         <div class="checkout-box">
-            <form  id="checkoutForm" action="#" method="post">
+            <form  id="checkoutForm" action="/home/xiangqing" method="post">
+            	{{ csrf_field() }}
                 <div class="checkout-box-bd">
                         <!-- 地址状态 0：默认选择；1：新增地址；2：修改地址 -->
                     <input type="hidden" name="Checkout[addressState]" id="addrState"   value="0">
@@ -71,17 +70,18 @@
                                 @foreach ($shang as $v)
                                 @foreach ($v as $vv)
                                 @php $picname = DB::table('goodspicture')->where('gid',$vv->gid)->pluck('pic_name'); @endphp
+                         		<input type="hidden" name="gid[]" value="{{$vv->gid}}" >
+
                                 <dd class="item clearfix">
                                     <div class="item-row">
                                         <div class="col col-1">
                                             <div class="g-pic">
-                                                <img src="{{$picname[0]}}" srcset="http://i1.mifile.cn/a1/T11lLgB5YT1RXrhCrK!80x80.jpg 2x" width="40" height="40" />
+                                                <img src="{{$picname[0]}}"  width="40" height="40" />
                                             </div>
                                             <div class="g-info">
                                           	<a href="#">
                                           	{{$vv->c_gname}} {{$vv->c_color}} {{$vv->c_size}}
                                            	</a>
-                                                                                                                                    </div>
                                         </div>
                     
                                         <div class="col col-2">{{$vv->c_price}} 元</div>
@@ -98,6 +98,7 @@
                                         <li>
                                            订单总额：<span>{{$zj}}  元</span>
                                         </li>
+										<input class="zj" type="hidden" name="zongjia" value="{{$zj}}">
                                         <li>
                                             活动优惠：<span>-0元</span>
                                             <script type="text/javascript">
@@ -120,8 +121,7 @@
 
                     </div>
                     <!-- 商品清单 END -->
-                    <input type="hidden"  id="couponType" name="Checkout[couponsType]">
-                    <input type="hidden" id="couponValue" name="Checkout[couponsValue]">
+
                     <div class="checkout-confirm">
                         
                          <a href="/home/cart" class="btn btn-lineDakeLight btn-back-cart">返回购物车</a>

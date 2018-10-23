@@ -75,11 +75,13 @@
 										@php $zj = ($v->c_price * $v->gmsl)  @endphp
 										<td  class="product-subtotal" data-title="Total">
 											<span class="zji" style="text-align: center;"  >{{$zj}}</span> 元			
+
 										</td>
 
 										<td  class="product-remove">
 											<a class="remove" cid="{{$v->id}}" style="width: 30px;height: 30px;line-height: 20px;" title="Remove this item"><i class="fa fa-times" aria-hidden="true"></i></a>					
 										</td>
+
 										
 									</tr>
 									@endforeach 
@@ -87,22 +89,19 @@
 										
 
 										<td colspan="5" class="actions">
-											
+
 											<span class="">总金额: &nbsp </span>		
 											<strong><span name='jine' class="zongjia">0 元</span></strong>
 										</td>
 										<input class="zj" type="hidden" name="zongjia" value="">
-										<td colspan="2" class="actions">
+										<td colspan="2" class="actions"></td>
 											
-												
-										</td>
 										<td colspan="5" >
 										<div class="wc-proceed-to-checkout">
 										<input type="submit" class="checkout-button button alt wc-forward" value="去结算">	
 										</div>
 				
 										</td>
-
 										
 									</tr>
 								</tbody>
