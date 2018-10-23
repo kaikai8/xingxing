@@ -150,7 +150,13 @@ class GoodsController extends Controller
        
         $zj =$request->input('zongjia');
         $res = [];
-        $res['gid'] = $request->post('gid');
+        $re = $request->post('gid');
+        foreach($re as $k=>$v){
+            $res['gid']=$v;
+        }
+
+
+        // dd($res);
         $res['uid'] = session('uid');
         $res['ord'] = '2018'.random_int(1111, 9999).time().$res['uid'];
         $res['otime'] = time();
@@ -159,7 +165,7 @@ class GoodsController extends Controller
        if($info){
                 $ress =DB::table('orders')->get();
                 // dd($ress);
-                return view('home.goods.xiangqing',['title'=>'我的订单','shang'=>$shang,'zj'=>$zj]);
+                return view('home.goods.xiangqing',['title'=>'我的订单','zj'=>$zj]);
                  
             }else{
 
