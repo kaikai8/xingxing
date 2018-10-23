@@ -19,7 +19,7 @@ class linkController extends Controller
          $rs = link::orderBy('link_id','asc')
             ->where(function($query) use($request){
                 //检测关键字
-                $auth = $request->input('link_auth');
+                $link_auth = $request->input('link_auth');
                
 
                 //如果状态不为空
@@ -32,7 +32,7 @@ class linkController extends Controller
                         $link_auth = '0';
                     }
 
-                    $query->where('auth','like','%'.$link_auth.'%');
+                    $query->where('link_auth','like','%'.$link_auth.'%');
                 }
             })
             ->paginate($request->input('num', 5));

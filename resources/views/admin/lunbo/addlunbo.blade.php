@@ -27,7 +27,14 @@
     			<div class="mws-form-row">
                 	<label class="mws-form-label">轮播</label>
                 	<div class="mws-form-item">
-                    	<div style="position: relative;" class="fileinput-holder"><input type="file" name='src' style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
+                    	<div style="position: relative;" class="fileinput-holder"><input type="file" name='profile' style="position: absolute; top: 0px; right: 0px; margin: 0px; cursor: pointer; font-size: 999px; opacity: 0; z-index: 999;"></div>
+                    </div>
+                </div>
+
+                 <div class="mws-form-row">
+                    <label class="mws-form-label">链接名</label>
+                    <div class="mws-form-item">
+                        <input type="text" class="small" name='src'>
                     </div>
                 </div>
     			

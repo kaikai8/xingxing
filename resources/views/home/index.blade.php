@@ -119,17 +119,14 @@
 																<div class="wpb_revslider_element wpb_content_element">
 																	<div id="main-slider" class="fullwidthbanner-container" style="position:relative; width:100%; height:auto; margin-top:0px; margin-bottom:0px">
 																		<div class="module slideshow no-margin">
-																			@php
-																				$rs = DB::table('Lunbo')->where('auth','1')->get();
-																			@endphp
-																			@foreach($rs as $k=>$v)
-																			<div class="item" style = "width:778px;height:352px">
-																			
-																				<a href="#"><img src="{{$v->src}}" alt="slider1"></a>
-																			
+																		@php
+																			$res = DB::table('lunbo')->where('auth','1')->get();
+																		@endphp
+																		@foreach($res as $k=>$v)
+																			<div class="item" style="width:780px;height:352px">
+																				<a href="{{$v->src}}"><img src="{{$v->profile}}" alt="slider1" class="img-responsive"></a>
 																			</div>
-																			@endforeach
-																			
+																		@endforeach
 																		</div>
 																		<div class="loadeding"></div>
 																	</div>
@@ -271,14 +268,15 @@
 												@foreach ($rx as $v)
 												@php
 												$gpic = DB::table('goodspicture')->where('gid',$v->gid)->pluck('pic_name');
-												
+
+												$fff = DB::table('gtype')->where('tid',$v->tid)->pluck('tname');
 												@endphp
 												
-												<div class="item-countdown product " id="product_sw_countdown_02">
+												<div class="item-countdown product " id="product_sw_countdown_02" >
 													<div class="item-wrap">
-														
-														<div class="item-detail">
-															<a href="home/goods/{{$v->gid}}" title="{{$f->tname}}">
+														@foreach ($fff as $f)
+														<div class="item-detail" title="{{$f}}">
+															<a href="home/goods/{{$v->gid}}" >
 															<div class="item-content">
 																<!-- rating  -->
 																<div class="reviews-content">
@@ -319,7 +317,7 @@
 																<span class="onsale"></span>
 																
 																<a href="/home/goods/{{$v->gid}}">
-																	<div class="product-thumb-hover">
+																	<div  class="product-thumb-hover">
 																		<img 	width="300" height="300" src="{{$gpic[0]}}" class="attachment-shop_catalog size-shop_catalog wp-post-image" alt="" 
 																				
 																				sizes="(max-width: 300px) 100vw, 300px" />
@@ -331,15 +329,15 @@
 																	<a rel="nofollow" href="/home/goods/{{$v->gid}}" class="button product_type_simple " title="加入购物车">加入购物车</a>
 
 																	<div class="yith-wcwl-add-to-wishlist ">
-																		<div class="show"  >
-																			<a style="display:block" href="#" title="心愿单" >心愿单</a>
+																		<div class="show">
+																			<a style="display:block" href="/home/love" title="心愿单" >心愿单</a>
 																		</div>
 																	</div>
 																</div>
 															</div>
 															
 														</div>
-														
+														@endforeach
 													</div>
 												</div>
 											
@@ -351,7 +349,6 @@
 							</div>
 						</div>
 					</div>
-					
 					
 					
 					<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">

@@ -85,11 +85,11 @@ class guanggaoController extends Controller
         }
 
         $res['a_profile'] = '/uploads/'.$name.'.'.$suffix;
-
+        $rs = guanggao::create($res);
 
         try{
            
-            $rs = guanggao::create($res);
+           
 
 
         

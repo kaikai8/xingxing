@@ -63,7 +63,8 @@
 										<td colspan="6" class="actions">
 											 {{csrf_field()}}
 											
-											<a href="/home/goods/{{$v->oid}}"><input type="submit" class="button" name="update_cart" value="查看详情">		</a>
+											<a href="/home/goods/{{$v->oid}}">
+											<input type="submit" class="button" name="update_cart" value="查看详情"></a>
 										</td>
 									
 										<!-- <td class="product-quantity" data-title="Quantity">

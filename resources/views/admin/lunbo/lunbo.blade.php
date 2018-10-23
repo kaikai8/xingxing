@@ -55,6 +55,10 @@
                         rowspan="1" colspan="1" style="width: 200px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
+                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
+                        rowspan="1" colspan="1" style="width: 500px;" aria-label="Browser: activate to sort column ascending">
+                            轮播图
+                        </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
                         rowspan="1" colspan="1" style="width: 500px;" aria-label="Browser: activate to sort column ascending">
                             src
@@ -76,9 +80,13 @@
                             {{$v->lid}}
                         </td>
 
-                        <td class=" ">
+                        <td class="" style = "text-align:center">
                            
-                            <img src="{{$v->src}}" alt="" width="200px">
+                            <img src="{{$v->profile}}" alt="" width="200px">
+                        </td>
+
+                         <td class="" style = "text-align:center">
+                            {{$v->src}}
                         </td>
 
                         <td class=" " style = "text-align:center">

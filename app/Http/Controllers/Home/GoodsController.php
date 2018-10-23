@@ -21,9 +21,12 @@ class GoodsController extends Controller
         
     	return view('home.goods.goods',['title'=>'商品详情','res'=>$res,'gimg'=>$gimg,'re'=>$re]);
     }
+
+
     // 把数据添加到cart购物车表
     public function carts(Request $request, $id)
     {
+
         $colors = $request->input('color');
         foreach ($colors as $k => $v){
             $re['c_color'] = $v;
@@ -45,7 +48,10 @@ class GoodsController extends Controller
         }
         $gimgs = Goodspicture::where('gid',$id)->pluck('pic_name');
         $re['gpsrc'] = $gimgs[0];
-        
+
+        $re['xiaoji'] = $re['c_price'] * $re['gmsl'];
+
+        $re['uid'] = session('uid');
         // dd($re);
         
         try{
@@ -62,12 +68,18 @@ class GoodsController extends Controller
         }
         
     }
+
+
+    // 在购物车遍历出来
     public function cart()
     {
-        $cart = Cart::get();
+        $cart = Cart::where('uid',session('uid'))->get();
         // dd($cart);
         return view('home.goods.cart',['title'=>'购物车','cart'=>$cart]);
     }
+
+
+    // 移出购物车
     public function remove(Request $request)
     {
         $cid = $request->cid;
@@ -80,8 +92,56 @@ class GoodsController extends Controller
             echo 0;
         }
     }
+
+
+    // 通过分类查找商品
     public function gtods($id)
     {
-        return view('home.goods.gtods',['title'=>'商品']);
+        
+
+        $goods = Goods::where('tid',$id)->get();
+        return view('home.goods.gtods',['title'=>'商品','goods'=>$goods]);
+    }
+
+
+    // 结算页
+    public function jiesuan(Request $request)
+    {
+            $ids = $request->input('ids');
+
+            if($ids){
+                $id = session('uid');
+                $shou = DB::table('addr_message')->where(['user_id'=>$id,'moren'=>'1'])->get();
+                $zj =$request->input('zongjia');
+                // dd($ids,$zj,$shou,$id);
+
+                $shang =[];
+                foreach ($ids as  $k =>$v){
+                    $shang[] = Cart::where('id',$v)->get();
+                }  
+                return view('home.goods.jiesuan',['title'=>'结算页','shou'=>$shou,'shang'=>$shang,'zj'=>$zj]);
+            }else{
+
+            return back()->with('success','请选中商品后再进行结算');
+
+            }
+        
+    }
+
+    // ajax传参小计到数据库
+    public function gmsl(Request $request)
+    {
+        $jia = $request->gg;
+        $shu = $request->gv;
+        $did = $request->did;
+        $data = Cart::where('id',$did)->update(['gmsl'=>$shu,'xiaoji'=>$jia]);
+         if($data){
+            echo 1;
+        }else{
+            echo 0;
+        }
     }
 }
+// $uid = session('uid');
+// $uname = DB::table('user')->where('uid',$uid)->pluck('uname');
+//         dd($uname);

@@ -49,8 +49,8 @@
     				<label class="mws-form-label">权限</label>
     				<div class="mws-form-item clearfix">
     					<ul class="mws-form-list inline">
-    						<li><label><input type="radio" name='auth' value='启用' checked='checked'>启用</label></li>
-    						<li><label><input type="radio" name='auth' value='禁用'>禁用</label></li>
+    						<li><label><input type="radio" name='auth' value='1' checked='checked'>启用</label></li>
+    						<li><label><input type="radio" name='auth' value='0'>禁用</label></li>
     						
     					
     					</ul>

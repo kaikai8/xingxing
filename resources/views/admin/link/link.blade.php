@@ -93,7 +93,7 @@
 
                         <td class=" " style = "text-align:center">
                             
-                           @if($v->link_auth == 1)
+                            @if($v->link_auth == 1)
                                 启用
                             @elseif($v->link_auth == 0)
                                 禁用
