@@ -101,3 +101,5 @@ Route::group(['middleware'=>'homelogin'],function()
 });
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');
+	//实例
+	Route::get('sadaa');
