@@ -148,6 +148,35 @@ class GtypeController extends Controller
         }
         
     }
+
+    // 子分类添加页面
+    public function add($id)
+    {
+           $res = Gtype::where('tid',$id)->pluck('tname');
+           
+
+        return view('admin.gtype.addzigtype',['title'=>'添加子分类','res'=>$res,'id'=>$id]);
+    }
+
+    // 存到数据表
+    public function zilei(Request $request)
+    {
+        $res = $request->except('_token');
+        if($res['pid'] == '0'){
+            $res['path'] = '0,';
+        } else{
+            $data = Gtype::where('tid',$res['pid'])->first();
+            $res['path'] = $data->path.$data->tid.',';
+        }
+        try{
+            $info =  Gtype::create($res);
+            if($info){
+                return redirect('/admin/gtype')->with('success','添加成功');
+            }
+        }catch(\Exception $e){
+            return back()->with('error','添加失败');
+        }
+    }
 }
 
 

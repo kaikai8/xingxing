@@ -179,119 +179,11 @@
 								<div class="widget-inner">
 									<div class="top-form top-form-minicart etrostore-minicart pull-right">
 										<div class="top-minicart-icon pull-right">
-											<i class="fa fa-shopping-cart"></i>
+											<i class="fa fa-shopping-cart gou"></i>
 									
 										</div>
 										
-										<div class="wrapp-minicart">
-											<div class="minicart-padding">
-												<div class="number-item">
-													购物车
-												</div>
-												
-												<ul class="minicart-content">
-													<li>
-														<a href="simple_product.html" class="product-image">
-															<img 	width="100" height="100" src="/homes/images/1903/45-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-																	srcset="/homes/images/1903/45-150x150.jpg 150w, /homes/images/1903/45-300x300.jpg 300w, images/1903/45-180x180.jpg 180w, /homes/images/1903/45.jpg 600w" 
-																	sizes="(max-width: 100px) 100vw, 100px" />
-														</a>
-														
-														<div class="detail-item">
-															<div class="product-details">
-																<h4>
-																	<a class="title-item" href="simple_product.html">Veniam Dolore</a>
-																</h4>
-																
-																<div class="product-price">
-																	<span class="price">
-																		<span class="woocommerce-Price-amount amount">
-																			<span class="woocommerce-Price-currencySymbol">$</span>190.00
-																		</span>
-																	</span>
-																	
-																	<div class="qty">
-																		<span class="qty-number">1</span>									
-																	</div>
-																</div>
-																
-																<div class="product-action clearfix">
-																	<a href="#" class="btn-remove" title="Remove this item">
-																		<span class="fa fa-trash-o"></span>
-																	</a>
-																	
-																	<a class="btn-edit" href="cart.html" title="View your shopping cart">
-																		<span class="fa fa-pencil"></span>
-																	</a>    
-																</div>
-															</div>
-														</div>
-													</li>
-													
-													<li>
-														<a href="simple_product.html" class="product-image">
-															<img 	width="100" height="100" src="/homes/images/1903/22-150x150.jpg" class="attachment-100x100 size-100x100 wp-post-image" alt="" 
-																	srcset="/homes/images/1903/22-150x150.jpg 150w, /homes/images/1903/22-300x300.jpg 300w, /homes/images/1903/22-180x180.jpg 180w, /homes/images/1903/22.jpg 600w" 
-																	sizes="(max-width: 100px) 100vw, 100px" />
-														</a>
-														
-														<div class="detail-item">
-															<div class="product-details">
-																<h4>
-																	<a class="title-item" href="simple_product.html">Cleaner with bag</a>
-																</h4>
-																
-																<div class="product-price">
-																	<span class="price">
-																		<span class="woocommerce-Price-amount amount">
-																			<span class="woocommerce-Price-currencySymbol">$</span>350.00
-																		</span>
-																	</span>
-																	
-																	<div class="qty">
-																		<span class="qty-number">1</span>									
-																	</div>
-																</div>
-																
-																<div class="product-action clearfix">
-																	<a href="#" class="btn-remove" title="Remove this item">
-																		<span class="fa fa-trash-o"></span>
-																	</a>
-																	
-																	<a class="btn-edit" href="cart.html" title="View your shopping cart">
-																		<span class="fa fa-pencil"></span>
-																	</a>
-																</div>
-															</div>
-														</div>
-													</li>
-												</ul>
-												
-												<div class="cart-checkout">
-													<div class="price-total">
-														<span class="label-price-total">Total</span>
-														
-														<span class="price-total-w">
-															<span class="price">
-																<span class="woocommerce-Price-amount amount">
-																	<span class="woocommerce-Price-currencySymbol">$</span>540.00
-																</span>
-															</span>
-														</span>			
-													</div>
-													
-													<div class="cart-links clearfix">
-														<div class="cart-link">
-															<a href="cart.html" title="Cart">View Cart</a>
-														</div>
-														
-														<div class="checkout-link">
-															<a href="checkout.html" title="Check Out">Check Out</a>
-														</div>
-													</div>
-												</div>
-											</div>
-										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -339,7 +231,7 @@
 												<li><a href="/home/cart">购物车</a></li>
 												<li><a href="/home/centre">个人中心</a></li>
 												<!-- <li><a href="my_account.html">个人中心</a></li> -->
-												<li><a href="#">店铺</a></li>
+												<li><a href="/home/orders">我的订单</a></li>
 												<li><a href="#">简单的商品</a></li>
 												<li><a href="#">关于我们</a></li>
 												<li><a href="#">联系我们</a></li>
@@ -352,7 +244,7 @@
 										<li><a href="/home/cart">购物车</a></li>
 										<li><a href="/home/centre">个人中心</a></li>
 										<!-- <li><a href="my_account.html">个人中心</a></li> -->
-										<li><a href="#">店铺</a></li>
+										<li><a href="/home/orders">我的订单</a></li>
 										<li><a href="#">简单的商品</a></li>
 										<li><a href="#">关于我们</a></li>
 										<li><a href="#">联系我们</a></li>
@@ -1141,6 +1033,10 @@
       	b[c] = b[c].replace( rcs, ' ' );
       	// The customizer requires postMessage and CORS (if the site is cross domain)
       	b[c] += ( window.postMessage && request ? ' ' : ' no-' ) + cs;
+
+      	$('.gou').click(function(){
+      		location.replace('/home/cart')
+      	})
    </script>
    	@section('js')
 	@show

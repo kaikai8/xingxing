@@ -5,7 +5,16 @@
 
 @section('content')
 <div style="height: 36px"></div>
-
+@if (!empty(session('success')))
+						    <div class="mws-form-message error">
+						    	
+						        <ul>
+						        	
+						                <li>{{session('success')}}</li>
+						            
+						        </ul>
+						    </div>
+						@endif
 <div class="row">
 	<div id="contents-detail" class="content col-lg-12 col-md-12 col-sm-12" role="main">
 		<div id="container">
@@ -325,7 +334,7 @@
 		$('#gow').attr('value',j);
 	});
 
-	
+	$('.mws-form-message').fadeOut(5000);
 	
 </script>
 

@@ -47,9 +47,19 @@ Route::group(['middleware'=>'adminlogin'],function()
 	
 
 	// 后台商品分类
-	Route::resource('admin/gtype','admin\gtype\GtypeController');
+	Route::resource('admin/gtype','Admin\gtype\GtypeController');
+	// 添加子分类
+	Route::any('admin/add/{id}','Admin\gtype\GtypeController@add');
+	Route::any('admin/gtypezi','Admin\gtype\GtypeController@zilei');
 	// 后台商品信息
-	Route::resource('admin/goods','admin\goods\GoodsController');
+	Route::resource('admin/goods','Admin\goods\GoodsController');
+	// 订单管理
+	Route::resource('admin/orders','Admin\goods\OrdersController');
+	// 订单详情
+	Route::any('admin/xiangqing/{id}','Admin\goods\xiangController@xiang');
+	// ajax改变订单状态
+	Route::post('admin/status','Admin\goods\xiangController@status');
+	
 });
 
 
@@ -94,7 +104,6 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('home/remove','Home\GoodsController@remove');
 	// 查看购物车
 	Route::any('home/cart','Home\GoodsController@cart');
-});
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');
 	// 商品页
@@ -103,6 +112,14 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('/home/jiesuan','Home\GoodsController@jiesuan');
 	// ajax传参小计到数据库
 	Route::post('home/gmsl','Home\GoodsController@gmsl');
-	// 订单详情
+	// 生成订单
 	Route::post('home/xiangqing','Home\GoodsController@xiangqing');
+	// 把订单遍历到页面
+	Route::get('/home/orders','Home\GoodsController@orders');
+	// ajax改变订单状态
+	Route::post('admin/queren','Admin\goods\xiangController@queren');
+	// 删除订单
+	Route::post('admin/removes','Admin\goods\xiangController@removes');
+});
+	
 

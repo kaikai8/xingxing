@@ -188,8 +188,8 @@
                     <li>
                         <a href="#"><i class="icon-th-list"></i>订单管理</a>
                         <ul class="closed">
-                            <li><a href="#">管理订单</a></li>
-                            <li><a href="#">浏览订单</a></li>
+                            <li><a href="/admin/orders">管理订单</a></li>
+                            <!-- <li><a href="#">浏览订单</a></li> -->
                         </ul>
                     </li>
                 </ul>

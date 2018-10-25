@@ -95,7 +95,9 @@
 												
 										</td>
 										<td colspan="5" >
+
 										<div class="wc-proceed-to-checkout">
+										<a class="checkout-button button alt wc-forward" href="/">继续购买</a> &nbsp; &nbsp; &nbsp; 
 										<input type="submit" class="checkout-button button alt wc-forward" value="去结算">	
 										</div>
 				
