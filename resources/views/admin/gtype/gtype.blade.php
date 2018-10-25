@@ -61,15 +61,15 @@
                             分类名
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 160px;" aria-label="Browser: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 60px;" aria-label="Browser: activate to sort column ascending">
                             pid
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 160px;" aria-label="Browser: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 130px;" aria-label="Browser: activate to sort column ascending">
                             path
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 97px;" aria-label="CSS grade: activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 197px;" aria-label="CSS grade: activate to sort column ascending">
                             操作
                         </th>
                     </tr>
@@ -94,6 +94,7 @@
                      
                          <td class=" ">
                             <a class='btn btn-primary' href="/admin/gtype/{{$v->tid}}/edit">修改</a>
+                            <a class='btn btn-primary' href="/admin/add/{{$v->tid}}">添加子分类</a>
 
                             <form action="/admin/gtype/{{$v->tid}}" method='post' style='display:inline'>
                                 

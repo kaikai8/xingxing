@@ -71,6 +71,7 @@
                                 @foreach ($v as $vv)
                                 @php $picname = DB::table('goodspicture')->where('gid',$vv->gid)->pluck('pic_name'); @endphp
                          		<input type="hidden" name="gid[]" value="{{$vv->gid}}" >
+                         		<input type="hidden" name="id[]" value="{{$vv->id}}" >
 
                                 <dd class="item clearfix">
                                     <div class="item-row">

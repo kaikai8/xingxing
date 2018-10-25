@@ -220,7 +220,7 @@ class GoodsController extends Controller
         
         
           //添加数据
-        try{
+        // try{
             //关联模型
             
            $data = Goods::where('gid',$id)->update($res);
@@ -228,12 +228,14 @@ class GoodsController extends Controller
             if($data){
 
                 return redirect('/admin/goods')->with('success','修改成功');
+            }else{
+                return back()->with('error','修改失败');
             }
-        } catch(\Exception $e){
+        // } catch(\Exception $e){
 
-            return back()->with('error','修改失败');
+            
 
-        }
+        // }
 
     }
 

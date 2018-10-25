@@ -72,7 +72,7 @@
 																		<li class="fix-position dropdown-submenu column-3 menu-image">
 																			<ul class="dropdown-sub nav-level2">
 																				<li class="menu-image-1 etrostore-menu-img">
-																					<a href="#">
+																					<a >
 																						<span class="">
 																							<span class="menu-img">
 																								<img src="/homes/images/1903/menu-bn7.jpg" alt="Menu Image" /></span>
@@ -81,7 +81,7 @@
 																				</li>
 																				
 																				<li class="menu-image-2 etrostore-menu-img">
-																					<a href="#">
+																					<a >
 																						<span class="">
 																							<span class="menu-img">
 																								<img src="/homes/images/1903/menu-bn8.jpg" alt="Menu Image" /></span>
@@ -90,7 +90,7 @@
 																				</li>
 																				
 																				<li class="menu-image-3 etrostore-menu-img">
-																					<a href="#">
+																					<a>
 																						<span class="">
 																							<span class="menu-img">
 																								<img src="/homes/images/1903/menu-bn9.jpg" alt="Menu Image" /></span>

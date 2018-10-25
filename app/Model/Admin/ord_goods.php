@@ -4,17 +4,17 @@ namespace App\Model\admin;
 
 use Illuminate\Database\Eloquent\Model;
 
-class orders extends Model
+class ord_goods extends Model
 {
-     /**
+    /**
      * 与模型关联的数据表
      *
      * @var string
      */
-    protected $table = 'orders';
+    protected $table = 'ord_goods';
 
     //主键
-    protected $primaryKey = 'oid';
+    protected $primaryKey = 'id';
 
     /**
      * 该模型是否被自动维护时间戳
@@ -29,12 +29,4 @@ class orders extends Model
 	 * @var array
 	 */
 	protected $guarded = [];
-
-	 // /**
-  //    * 获得商品图片
-  //    */
-  //   public function order()
-  //   {
-  //       return $this->hasMany('App\Model\Admin\Goods','gid');
-  //   }
 }
