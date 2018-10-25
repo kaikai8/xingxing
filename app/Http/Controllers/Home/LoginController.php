@@ -200,7 +200,7 @@ class LoginController extends Controller
         // dd($request);
         $res = $request->only('mphone','sex');
         
-        $data = $request->only('email');
+        $data = $request->only('email','uname');
         
         $this->validate($request, [
             'uname' => 'required|regex:/^\w{6,12}$/',

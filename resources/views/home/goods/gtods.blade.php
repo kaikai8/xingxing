@@ -15,22 +15,25 @@
 											<div class="show-map">
 												<div class="responsive-container">
 													<div class="row">
-														@foreach ($goods as $v)
+														
+														@foreach ($a as $k=>$v)
+														@foreach($v as $kk=>$vv)
 														@php
-														$gpic = DB::table('goodspicture')->where('gid',$v->gid)->pluck('pic_name');
+														$gpic = DB::table('goodspicture')->where('gid',$vv->gid)->pluck('pic_name');
 														@endphp
-
+														
 														<div class="item col-lg3 col-md-3 col-sm-6">
-															<a href="/home/goods/{{$v->gid}}">
+															<a href="/home/goods/{{$vv->gid}}">
 																<div class="image">
-																	<img width="200" src="{{$gpic[0]}}" alt="map1" title="{{$v->gname}}">
+																	<img width="200" src="{{$gpic[0]}}" alt="map1" title="{{$vv->gname}}">
 																	
 																</div>
 																
-																<div class="des"><h5><b>{{$v->gname}}</b></h5><b>{{$v->price}} 元</b></div>
+																<div class="des"><h5><b>{{$vv->gname}}</b></h5><b>{{$vv->price}} 元</b></div>
 
 															</a>
 														</div>
+														@endforeach
 														@endforeach
 													</div>
 												</div>

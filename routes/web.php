@@ -111,8 +111,10 @@ Route::group(['middleware'=>'homelogin'],function()
 });
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');
-	// 商品页
+	// 商品分类搜索
 	Route::get('/homes/goods/{id}','Home\GoodsController@gtods');
+	//商品页
+	Route::get('home/shops','Home\GoodsController@shops');
 	// 结算页
 	Route::post('/home/jiesuan','Home\GoodsController@jiesuan');
 	// ajax传参小计到数据库

@@ -31,7 +31,7 @@ class GoodsController extends Controller
         foreach ($colors as $k => $v){
             $re['c_color'] = $v;
         }
-
+                 
         $sizes = $request->input('size');
         foreach ($sizes as $k => $v){
             $re['c_size'] = $v;
@@ -93,14 +93,60 @@ class GoodsController extends Controller
         }
     }
 
+    //商品页
+    public function shops(Request $request)
+    {
+        $res = Goods::where('gname','like','%'.$request->input('gname').'%')->orderBy('gid','asc')->get();
+       
+
+            // dd($res);
+
+        return view('home.goods.shops',['title'=>'商品页','res'=>$res,'request'=>$request]);
+    }
+   
 
     // 通过分类查找商品
     public function gtods($id)
     {
-        
 
-        $goods = Goods::where('tid',$id)->get();
-        return view('home.goods.gtods',['title'=>'商品','goods'=>$goods]);
+            $gtype = Gtype::where('pid',$id)->pluck('tid');
+        
+            if(!($gtype->isEmpty()))
+            {
+                // $a =[]; 
+
+               foreach ($gtype as $k=>$v)
+                {
+                    $goods = Goods::where('tid',$v)->get();
+                    
+                    // dump($goods);
+                    
+                    $a[$k] = $goods;
+                    // $goods = $goods->toArray();
+
+                    // $gods = array_merge($goods);
+
+                     // dump($a);
+                }
+                // $goods = $a;
+                // dump($a);
+                   
+
+                // $goods = $array;
+                return view('home.goods.gtods',['title'=>'商品','a'=>$a]);
+
+
+            }else
+            {
+                $goods = Goods::where('tid',$id)->get();
+                $a = [];
+                $a[0] = $goods;
+                // dd($a);
+                
+                return view('home.goods.gtods',['title'=>'商品','a'=>$a]);
+            }
+      
+
     }
 
 

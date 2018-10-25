@@ -35,7 +35,7 @@
 															<ul id="menu-vertical-menu-1" class="nav vertical-megamenu etrostore-mega etrostore-menures" >
 																@foreach ($res as $f)
 																<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																	<a class="item-link dropdown-toggle">
+																	<a class="item-link dropdown-toggle" href="/home/shops?gname=@php echo "{$f->tname}" @endphp">
 																		<span class="have-title">
 																			<span class="menu-color" data-color="#efc73a"></span>
 																			
@@ -48,7 +48,7 @@
 																	<ul class="dropdown-menu nav-level1 column-3" style="height: 460px">
 																		@foreach ($ref as $fe)
 																		<li class="dropdown-submenu column-3 menu-electronics">
-																			<a>
+																			<a href="/homes/goods/{{$fe->tid}}">
 																				<span class="have-title">
 																					<span class="menu-title">{{$fe->tname}}</span>
 																				</span>
@@ -59,7 +59,7 @@
 																			<ul class="dropdown-sub nav-level2">
 																				@foreach ($sf as $s)
 																				<li class="menu-laptop-desktop-accessories">
-																					<a href="/">
+																					<a href="/homes/goods/{{$s->tid}}">
 																						<span class="have-title">
 																							<span class="menu-title">{{$s->tname}}</span>
 																						</span>

@@ -31,7 +31,7 @@
 									@foreach ($res as $k=>$v)
 									<tr class="cart_item">
 										<td class="product-remove">
-											<a class="remove" href="/home/uplove/{{$v->oid}}" style="width: 30px;height: 30px;line-height: 20px;" title="Remove this item"><i class="fa fa-times" aria-hidden="true"></i></a>					
+											<a class="remove" href="/home/delove/{{$v->oid}}" style="width: 30px;height: 30px;line-height: 20px;" title="Remove this item"><i class="fa fa-times" aria-hidden="true"></i></a>					
 										</td>
 										
 										

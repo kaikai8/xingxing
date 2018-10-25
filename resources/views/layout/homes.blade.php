@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="supports-js supports-no-touch supports-csstransforms supports-csstransforms3d supports-fontface">
 <head>	
 	<title>@yield('title')</title>
 	<meta charset="utf-8" />
@@ -144,9 +144,10 @@
 								<div class="widget-inner">
 									<div class="top-form top-search">
 										<div class="topsearch-entry">
-											<form method="get" action="">
+											<form method="get" action="/home/shops">
 												<div>
-												   <input type="text" value="" name="gname" placeholder="输入你的关键词">	
+												   <input type="text" name="gname" placeholder="输入你的关键词">
+												   
 													<div class="cat-wrapper">
 														<label class="label-search">
 															<select name="search_category" class="s1_option">
@@ -172,7 +173,7 @@
 															</select>
 														</label>
 													</div>
-													<button type="submit" title="Search" class="fa fa-search button-search-pro form-button"></button>
+													<button type="submit" class="fa fa-search button-search-pro form-button"></button>
 												</div>
 											</form>
 										</div>
@@ -343,7 +344,7 @@
 												<li><a href="/">首页</a></li>
 												<li><a href="/home/cart">购物车</a></li>
 												<li><a href="/home/centre">个人中心</a></li>
-												<!-- <li><a href="my_account.html">个人中心</a></li> -->
+												<li><a href="/home/shops">购物中心</a></li>
 												<li><a href="/home/love">我的收藏</a></li>
 												<li><a href="#">我的订单</a></li>
 											</ul>
@@ -354,7 +355,7 @@
 										<li><a href="/">首页</a></li>
 										<li><a href="/home/cart">购物车</a></li>
 										<li><a href="/home/centre">个人中心</a></li>
-										<!-- <li><a href="my_account.html">个人中心</a></li> -->
+										<li><a href="/home/shops">购物中心</a></li>
 										<li><a href="/home/love">我的收藏</a></li>
 										<li><a href="#">我的订单</a></li>
 										
