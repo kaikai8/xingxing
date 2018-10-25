@@ -113,15 +113,11 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('home/remove','Home\GoodsController@remove');
 	// 查看购物车
 	Route::any('home/cart','Home\GoodsController@cart');
-<<<<<<< HEAD
 	//商品收藏页
 	Route::resource('home/love','Home\LoveController');
 	Route::any('home/addlove/{id}','Home\LoveController@addlove');
 	Route::any('home/delove/{id}','Home\LoveController@delove');
 
-});
-=======
->>>>>>> 454b1a40b2cff90205c7b4b5e74a5d4a130fc5ea
 	// 商品详情页
 	Route::get('home/goods/{id}','Home\GoodsController@goods');
 	// 商品分类搜索
@@ -132,12 +128,8 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('/home/jiesuan','Home\GoodsController@jiesuan');
 	// ajax传参小计到数据库
 	Route::post('home/gmsl','Home\GoodsController@gmsl');
-<<<<<<< HEAD
 
-	// 订单详情
-=======
 	// 生成订单
->>>>>>> 454b1a40b2cff90205c7b4b5e74a5d4a130fc5ea
 	Route::post('home/xiangqing','Home\GoodsController@xiangqing');
 	// 把订单遍历到页面
 	Route::get('/home/orders','Home\GoodsController@orders');
