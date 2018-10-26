@@ -3,13 +3,10 @@
 @section('content')
 <meta name="csrf-token" content="{{ csrf_token() }}">
 <div style="height: 30px" ></div>
-@if (count($errors) > 0)
+@if (!empty(session('success')))
     <div class="mws-form-message error">
-        错误信息
         <ul>
-            @foreach ($errors->all() as $error)
-                <li>{{ $error }}</li>
-            @endforeach
+            <li>{{session('success')}}</li>
         </ul>
     </div>
 @endif
@@ -25,7 +22,7 @@
             <h5> &nbsp; &nbsp; 订单号 : {{$v->ord}}</h5>
             <h5 >  &nbsp; &nbsp; 下单时间 : {{date('Y年m月d日', $v->addtime)}}</h5>
             <h5 >  &nbsp; &nbsp; 订单状态 :
-            	<span> 
+            	<span oid="{{$v->oid}}"> 
             		@if($v->ostatus == '0')
             		已下单,未发货 
             		@elseif($v->ostatus == '1')
@@ -36,7 +33,7 @@
             	
             		@elseif($v->ostatus == '2') 
             		交易完成  &nbsp; &nbsp; 
-            		<button oid="{{$v->oid}}" style="margin-left:600px" class="btn-danger btn-small removes">删除订单</button>
+            		<button  style="margin-left:600px" class="btn-danger btn-small removes">删除订单</button>
             		@endif
             	</span>
             </h5>
@@ -120,7 +117,9 @@
 			$.post('/admin/queren',{'oid':oid},function(data){
 				// console.log(parent);
 				if(data.status){
-					$('button[oid='+data.oid+']').parent().html('交易完成   &nbsp; &nbsp; <button oid="{{$v->oid}}" style="margin-left:600px" class="btn-danger btn-small removes">删除订单</button>');
+					$('button[oid='+data.oid+']').parent().html('交易完成   &nbsp; &nbsp; <button  style="margin-left:600px" class="btn-danger btn-small removes">删除订单</button>');
+                    // reload(true);
+                    window.location.reload();
 				}else{
 
 				}
@@ -129,7 +128,7 @@
 		});
 
 		$('.removes').click(function(){
-			var oid = $(this).attr('oid');
+			var oid = $(this).parent().attr('oid');
 			var parentss = $(this).parents('.quanbu');
 			$.post('/admin/removes',{oid:oid},function(data){
 				if(data.status){
@@ -143,5 +142,11 @@
 			
 		})
 		
+</script>
+@stop
+
+@section('js')
+<script>
+    $('.mws-form-message').fadeOut(5000);
 </script>
 @stop

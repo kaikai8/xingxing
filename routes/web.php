@@ -14,7 +14,8 @@
 Route::get('/',function()
 {
 	$res = DB::table('gtype')->where('pid','0')->get();
-	return view('home.index',['title'=>'星星商城', 'res'=>$res]);
+	$re = DB::table('guanggao')->where('auth','1')->limit('2')->get();
+	return view('home.index',['title'=>'星星商城', 'res'=>$res,'re'=>$re]);
 });
 
 //后台登陆页面
@@ -132,6 +133,8 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::post('admin/queren','Admin\goods\xiangController@queren');
 	// 删除订单
 	Route::post('admin/removes','Admin\goods\xiangController@removes');
+	// 热销商品
+	Route::get('home/rexiao','Home\GoodsController@rexiao');
 });
 
 	// 商品详情页

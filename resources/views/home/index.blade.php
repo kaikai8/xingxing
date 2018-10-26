@@ -251,6 +251,7 @@
 										<div class="resp-slider-container">
 											<div class="box-title clearfix">
 												<h3>热销商品</h3>
+												<a href="/home/rexiao">查看全部</a>
 											</div>
 											
 											
@@ -351,38 +352,45 @@
 						</div>
 					</div>
 					
-					
 					<div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
+						@foreach($re as $v)
 						<div class="wpb_column vc_column_container vc_col-sm-6">
 							<div class="vc_column-inner ">
 								<div class="wpb_wrapper">
 									<div class="wpb_single_image wpb_content_element vc_align_center">
 										<figure class="wpb_wrapper vc_figure">
-											
-												<img class="vc_single_image-img" src="/homes/images/1903/banner6-1.jpg" width="570" height="220" alt="banner6" title="banner6" />
-											
+											<a  href="{{$v->src}}" target="_self" class="vc_single_image-wrapper vc_box_border_grey">
+												<img class="vc_single_image-img" src="{{$v->a_profile}}" width="570" height="220" alt="{{$v->aname}}" title="{{$v->aname}}" />
+											</a>
 										</figure>
 									</div>
 								</div>
 							</div>
 						</div>
+						@endforeach
+					</div>
+					
+					<!-- <div class="vc_row wpb_row vc_row-fluid margin-bottom-60">
 						
 						<div class="wpb_column vc_column_container vc_col-sm-6">
 							<div class="vc_column-inner ">
 								<div class="wpb_wrapper">
-									<div class="wpb_single_image wpb_content_element vc_align_center banner-none">
+									<div class="wpb_single_image wpb_content_element vc_align_center">
 										<figure class="wpb_wrapper vc_figure">
-												<img class="vc_single_image-img" src="/homes/images/1903/banner7-1.jpg" width="570" height="220" alt="banner7" title="banner7" />
+
+												<img  width="570" height="220" style="display: block; width: 570px height:220px" class="vc_single_image-img" src="{{$v->a_profile}}" alt="banner6" title="banner6" />
+
 										</figure>
 									</div>
 								</div>
 							</div>
 						</div>
 					</div>
+ -->
 				</div>
 			</div>
 			
-			<div class="clearfix"></div>
+			<div  class="clearfix"></div>
 		</div>
 	</div>
 </div>

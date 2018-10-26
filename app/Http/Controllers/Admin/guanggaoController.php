@@ -82,23 +82,30 @@ class guanggaoController extends Controller
 
             //移动
             $request->file('a_profile')->move('uploads',$name.'.'.$suffix);
+            $res['a_profile'] = '/uploads/'.$name.'.'.$suffix;
         }
-
-        $res['a_profile'] = '/uploads/'.$name.'.'.$suffix;
-        $rs = guanggao::create($res);
-
-        try{
-           
-           
-
-
+        // dd($request->aname == '');
+        if($request->aname == ''){
+            return back()->with('success','广告名不能为空');
+        }
+        if($request->src == ''){
+            return back()->with('success','广告链接不能为空');
+        }
+        if($request->a_profile == ''){
+            return back()->with('success','广告图片不能为空');
+        }
+       
         
+        try{
+            $rs = guanggao::create($res);
+            if($rs){
 
             return redirect('admin/guanggao')->with('success','添加成功');
             
+            }
         }catch(\Exception $e){
 
-            return back()->with('error','添加失败');
+            return back()->with('success','添加失败');
 
         }
     }
@@ -156,19 +163,24 @@ class guanggaoController extends Controller
             $res['a_profile'] = '/uploads/'.$name.'.'.$suffix;
 
         }
-
+        $rs = guanggao::where('aid',$id)->update($res);
+        if(empty($rs)){
+            return back()->with('success','你还没有修改过呢');
+        };
         try{
            
-            $rs = guanggao::where('aid',$id)->update($res);
-
-
             
+
+            if($rs){
+
 
             return redirect('/admin/guanggao')->with('success','修改成功');
            
+            }
+            
         }catch(\Exception $e){
 
-            return back()->with('error','修改失败');
+            return back()->with('success','修改失败');
 
         }
     }
@@ -184,13 +196,15 @@ class guanggaoController extends Controller
          try{
            
             $res = guanggao::where('aid',$id)->delete();
+            if($res){
 
             
             return redirect('/admin/guanggao')->with('success','删除成功');
             
+            }
         }catch(\Exception $e){
 
-            return back()->with('error','删除失败');
+            return back()->with('success','删除失败');
 
         }
     }

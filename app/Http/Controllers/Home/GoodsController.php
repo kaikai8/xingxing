@@ -153,6 +153,7 @@ class GoodsController extends Controller
                 }else{
                     $gids[] = $v;
                 }
+
             }
         }else{
             $gids[] = $id;
@@ -170,23 +171,34 @@ class GoodsController extends Controller
     {
             $ids = $request->input('ids');
             $zj =$request->input('zongjia');
-            if($ids&&$zj){
-                $id = session('uid');
-                $shou = DB::table('addr_message')->where(['user_id'=>$id,'moren'=>'1'])->get();
-                
-                // dd($ids,$zj,$shou,$id);
+            $id = session('uid');
+            $shou = DB::table('addr_message')->where(['user_id'=>$id,'moren'=>'1'])->get();
+            $ds = [];
+            foreach($shou as $k=>$v){
+                $ds[] = $v->moren;
+            }
+            
+            if( !empty($ds)){
+                if($ids&&$zj){
+                    
+                    
+                    
+                    // dd($ids,$zj,$shou,$id);
 
-                $shang =[];
-                foreach ($ids as  $k =>$v){
-                    $shang[] = Cart::where('id',$v)->get();
-                }  
-                return view('home.goods.jiesuan',['title'=>'结算页','shou'=>$shou,'shang'=>$shang,'zj'=>$zj]);
+                    $shang =[];
+                    foreach ($ids as  $k =>$v){
+                        $shang[] = Cart::where('id',$v)->get();
+                    }  
+                    return view('home.goods.jiesuan',['title'=>'结算页','shou'=>$shou,'shang'=>$shang,'zj'=>$zj]);
+                }else{
+
+                return back()->with('success','请选中商品后再进行结算');
+
+                }
             }else{
-
-            return back()->with('success','请选中商品后再进行结算');
+                 return back()->with('success','请去添加收货人');
 
             }
-        
     }
 
     // ajax传参小计到数据库
@@ -260,5 +272,12 @@ class GoodsController extends Controller
         $res= session('uid');
         $ord_gods = Orders::orderBy('addtime','desc')->where('uid',$res)->get();
         return view('home.goods.xiangqing',['title'=>'我的订单','ord_gods'=>$ord_gods]);
+    }
+    // 热销商品
+    public function rexiao()
+    {
+        $re = Goods::where('status','2')->paginate(8);
+        // dd($re);
+        return view('home.goods.rexiao',['title'=>'热销商品','re'=>$re]);
     }
 }

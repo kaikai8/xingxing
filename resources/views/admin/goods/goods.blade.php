@@ -3,6 +3,13 @@
 @section('title',$title)
 
 @section('content')
+@if (!empty(session('success')))
+    <div class="mws-form-message error">
+        <ul>
+            <li>{{session('success')}}</li>
+        </ul>
+    </div>
+@endif
 <link rel="stylesheet" type="text/css" href="/admin/css/fenye.css" media="screen">
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
@@ -154,4 +161,9 @@
         </div>
     </div>
 </div>
+@stop
+@section('js')
+<script>
+$('.mws-form-message').delay(3000).fadeOut(2000);
+</script>
 @stop

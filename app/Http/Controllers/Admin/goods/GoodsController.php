@@ -61,6 +61,31 @@ class GoodsController extends Controller
     {
         $res = $request->except('_token','pic_name');
 
+        if($request->gname == ''){
+            return back()->with('success','商品名不能为空');
+        }
+        if($request->price == ''){
+            return back()->with('success','商品价格不能为空');
+        }
+        if($request->size == ''){
+            return back()->with('success','商品规格不能为空');
+        }
+        if($request->color == ''){
+            return back()->with('success','商品颜色不能为空');
+        }
+        if($request->gnum == ''){
+            return back()->with('success','商品库存不能为空');
+        }
+        if($request->pic_name== ''){
+            return back()->with('success','商品图片不能为空');
+        }
+        if($request->descr == ''){
+            return back()->with('success','商品描述不能为空');
+        }
+        if($request->status == ''){
+            return back()->with('success','商品状态不能为空');
+        }
+
         $re = Goods::create($res);
         
         $id = $re->gid;
@@ -103,7 +128,7 @@ class GoodsController extends Controller
             }
         }catch(\Exception $e){
 
-            return back()->with('error','添加失败');
+            return back()->with('success','添加失败');
 
         }
        
@@ -126,7 +151,7 @@ class GoodsController extends Controller
 
         if(!$data){
 
-            return back()->with('error','删除图片失败');
+            return back()->with('success','删除图片失败');
 
         }
 
@@ -134,7 +159,7 @@ class GoodsController extends Controller
 
         if(!$rs){
 
-            return back()->with('error','删除数据失败');
+            return back()->with('success','删除数据失败');
         }
 
         echo 1;
@@ -155,7 +180,7 @@ class GoodsController extends Controller
          foreach($re as $k => $v){
 
             $n = substr_count($v -> path, ',') - 1;
-
+            if($n<=0) $n=0;
             $v->tname = str_repeat('&nbsp;', $n * 8).'|--'.$v -> tname;
 
         }
@@ -229,7 +254,7 @@ class GoodsController extends Controller
 
                 return redirect('/admin/goods')->with('success','修改成功');
             }else{
-                return back()->with('error','修改失败');
+                return back()->with('success','修改失败');
             }
         // } catch(\Exception $e){
 
@@ -277,7 +302,7 @@ class GoodsController extends Controller
             }
         }catch(\Exception $e){
 
-            return back()->with('error','删除失败');
+            return back()->with('success','删除失败');
 
         }
     }
