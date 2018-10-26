@@ -165,6 +165,7 @@
 			var g = $(this).next().val();
 			var c_price = $(this).parents('td').siblings().find('.c_price').html();
 			var gg = parseInt(c_price) * g;
+			gg = gg.toFixed(2);
 			// console.log(gg);
 			$(this).parents('td').siblings().find('.zji').html(gg) ;
 			var did = $(this).attr('did');
@@ -188,7 +189,8 @@
 			$(this).prev().attr('value',gv);
 			var g = $(this).prev().val();
 			var c_price = $(this).parents('td').siblings().find('.c_price').html();
-			var gg = parseInt(c_price) * g;
+			var gg = parseFloat(c_price) * g;
+			gg = gg.toFixed(2);
 			// console.log(gg);
 			$(this).parents('td').siblings().find('.zji').html(gg) ;
 			var did = $(this).attr('did');

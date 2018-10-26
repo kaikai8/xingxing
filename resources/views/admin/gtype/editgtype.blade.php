@@ -3,6 +3,13 @@
 @section('title',$title)
 
 @section('content')
+@if (!empty(session('success')))
+    <div class="mws-form-message error">
+        <ul>
+            <li>{{session('success')}}</li>
+        </ul>
+    </div>
+@endif
 <div class="mws-panel grid_8">
      <div class="mws-panel-header">
      <span>{{$title}}</span>

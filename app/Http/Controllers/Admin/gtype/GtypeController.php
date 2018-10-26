@@ -70,7 +70,7 @@ class GtypeController extends Controller
                 return redirect('/admin/gtype')->with('success','添加成功');
             }
         }catch(\Exception $e){
-            return back()->with('error','添加失败');
+            return back()->with('success','添加失败');
         }
     }
 
@@ -123,7 +123,7 @@ class GtypeController extends Controller
                 return redirect('/admin/gtype')->with('success','修改成功');
             }
         }catch(\Exception $e){
-            return back()->with('error','修改失败');
+            return back()->with('success','修改失败');
         }
     }
 
@@ -144,7 +144,7 @@ class GtypeController extends Controller
                 return redirect('/admin/gtype')->with('success','删除成功');
             }
         }catch(\Exception $e){
-            return back()->with('error','删除失败');
+            return back()->with('success','删除失败');
         }
         
     }
@@ -168,13 +168,15 @@ class GtypeController extends Controller
             $data = Gtype::where('tid',$res['pid'])->first();
             $res['path'] = $data->path.$data->tid.',';
         }
+        dd($res);
+        if($request)
         try{
             $info =  Gtype::create($res);
             if($info){
                 return redirect('/admin/gtype')->with('success','添加成功');
             }
         }catch(\Exception $e){
-            return back()->with('error','添加失败');
+            return back()->with('success','添加失败');
         }
     }
 }

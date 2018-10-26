@@ -26,24 +26,23 @@
 												<div class="responsive-container">
 													<div class="row">
 														
-														@foreach ($a as $k=>$v)
-														@foreach($v as $kk=>$vv)
+														
+														@foreach($re as $v)
 														@php
-														$gpic = DB::table('goodspicture')->where('gid',$vv->gid)->pluck('pic_name');
+														$gpic = DB::table('goodspicture')->where('gid',$v->gid)->pluck('pic_name');
 														@endphp
 														
 														<div class="item col-lg3 col-md-3 col-sm-6">
-															<a href="/home/goods/{{$vv->gid}}">
+															<a href="/home/goods/{{$v->gid}}">
 																<div class="image">
-																	<img width="200" src="{{$gpic[0]}}" alt="map1" title="{{$vv->gname}}">
+																	<img width="200" src="{{$gpic[0]}}" alt="map1" title="{{$v->gname}}">
 																	
 																</div>
 																
-																<div class="des"><h5><b>{{$vv->gname}}</b></h5><b>{{$vv->price}} 元</b></div>
+																<div class="des"><h5><b>{{$v->gname}}</b></h5><b>{{$v->price}} 元</b></div>
 
 															</a>
 														</div>
-														@endforeach
 														@endforeach
 													</div>
 												</div>
@@ -60,7 +59,7 @@
 	</div>
 	<div style="margin-left: 444px" class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
                 
-                {!! $goods->render() !!}
+                {!! $re->render() !!}
             </div>
 </div>
 @stop

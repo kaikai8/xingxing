@@ -332,6 +332,7 @@
         $('body').attr('id','products');
         
        
-    })
+    });
+    $('.mws-form-message').fadeOut(5000);
 </script>
 @stop

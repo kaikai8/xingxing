@@ -3,7 +3,17 @@
 @section('title',$title)
 
 @section('content')
-
+@if (!empty(session('success')))
+    <div class="mws-form-message error">
+        
+        <ul>
+            
+                <li>{{session('success')}}</li>
+            
+        </ul>
+    </div>
+@endif
+<link rel="stylesheet" type="text/css" href="/admin/css/fenye.css" media="screen">
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>
@@ -52,7 +62,7 @@
                 <thead>
                     <tr role="row">
                         <th class="sorting_asc" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 200px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
+                        rowspan="1" colspan="1" style="width: 50px;" aria-sort="ascending" aria-label="Rendering engine: activate to sort column descending">
                             ID
                         </th>
 
@@ -67,11 +77,11 @@
                         </th>
 
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 500px;" aria-label="Browser: activate to sort column ascending">
-                            profile
+                        rowspan="1" colspan="1" style="width: 200px;" aria-label="Browser: activate to sort column ascending">
+                            广告图片
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
-                        rowspan="1" colspan="1" style="width: 200px;" aria-label="Platform(s): activate to sort column ascending">
+                        rowspan="1" colspan="1" style="width: 100px;" aria-label="Platform(s): activate to sort column ascending">
                             状态
                         </th>
                         <th class="sorting" role="columnheader" tabindex="0" aria-controls="DataTables_Table_1"
@@ -97,7 +107,7 @@
 
                         <td class=" " style = "text-align:center">
                            
-                            <img src="{{$v->a_profile}}" alt="" width="200px">
+                            <img src="{{$v->a_profile}}" alt="" width="100" height="50">
                         </td>
 
                         <td class=" " style = "text-align:center">
@@ -131,53 +141,9 @@
                 </tbody>
             </table>
             <div class="dataTables_info" id="DataTables_Table_1_info">
-                Showing 1 to 10 of 57 entries
+                分页
             </div>
             
-            <style>
-                .pagination li{
-                    float: left;
-                    height: 20px;
-                    padding: 0 10px;
-                    display: block;
-                    font-size: 12px;
-                    line-height: 20px;
-                    text-align: center;
-                    cursor: pointer;
-                    outline: none;
-                    background-color: #444444;
-                    color: #fff;
-                    text-decoration: none;
-                    border-right: 1px solid #232323;
-                    border-left: 1px solid #666666;
-                    border-right: 1px solid rgba(0, 0, 0, 0.5);
-                    border-left: 1px solid rgba(255, 255, 255, 0.15);
-                    box-shadow: 0px 1px 0px rgba(0, 0, 0, 0.5), inset 0px 1px 0px rgba(255, 255, 255, 0.15);}
-
-                    .pagination li a{
-                         color: #fff;
-                    }
-
-
-                    .pagination .active{
-                            background-color: #c5d52b;
-                            color: #323232;
-                    border: none;
-                    background-image: none;
-                    box-shadow: inset 0px 0px 4px rgba(0, 0, 0, 0.25);
-                    }
-
-                    .pagination .disabled{
-                        color: #666666;
-                        cursor: default;
-                    }
-
-                    .pagination{
-                        margin:0px;
-                    }
-
-            </style>
-
 
             <div class="dataTables_paginate paging_full_numbers" id="DataTables_Table_1_paginate">
                 
@@ -186,4 +152,9 @@
         </div>
     </div>
 </div>
+@stop
+@section('js')
+<script>
+$('.mws-form-message').delay(3000).fadeOut(2000);
+</script>
 @stop

@@ -242,7 +242,15 @@
 											</ul>
 										</div>
 									</div>
-									
+									<ul id="menu-primary-menu-1" class="nav nav-pills nav-mega etrostore-mega etrostore-menures">
+										<li><a href="/">首页</a></li>
+										<li><a href="/home/cart">购物车</a></li>
+										<li><a href="/home/centre">个人中心</a></li>
+										<li><a href="/home/shops">购物中心</a></li>
+										<li><a href="/home/love">我的收藏</a></li>
+										<!-- <li><a href="my_account.html">个人中心</a></li> -->
+										<li><a href="/home/orders">我的订单</a></li>
+									</ul>
 									
 								</div>
 							</nav>

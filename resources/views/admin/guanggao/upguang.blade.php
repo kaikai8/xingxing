@@ -3,23 +3,21 @@
 @section('title', $title)
 
 @section('content')
+@if (!empty(session('success')))
+    <div class="mws-form-message error">
+        
+        <ul>
+            
+                <li>{{session('success')}}</li>
+            
+        </ul>
+    </div>
+@endif
 <div class="mws-panel grid_8">
     <div class="mws-panel-header">
         <span>{{$title}}</span>
     </div>
     <div class="mws-panel-body no-padding">
-
-        @if (count($errors) > 0)
-            <div class="mws-form-message error">
-                错误信息
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
-
 
         <form action="/admin/guanggao/{{$res->aid}}" method='post' enctype='multipart/form-data' class="mws-form">
             <div class="mws-form-inline">

@@ -48,9 +48,10 @@ class XiangController extends Controller
     {
     	$oid = $request->oid;
     	$res = Orders::where('oid',$oid)->delete();
+        $re = Ord_goods::where('oid',$oid)->delete();
     	$data = [];
     	$data['oid'] = $oid;
-    	if($res){
+    	if($res && $re){
     		$data['status']= 1;
     	}else{
     		$data['status']= 0;

@@ -5,6 +5,16 @@
 @section('content')
 
 <meta name="csrf-token" content="{{ csrf_token() }}">
+@if (!empty(session('success')))
+    <div class="mws-form-message error">
+        
+        <ul>
+            
+                <li>{{session('success')}}</li>
+            
+        </ul>
+    </div>
+@endif
     <div class="container">
         <div class="checkout-box">
             <form  id="checkoutForm" action="/home/xiangqing" method="post">
@@ -36,10 +46,7 @@
                 </dd>
             </dl>
 			@endforeach
-                <div class="item use-new-addr"  id="J_useNewAddr" data-state="off">
-             <span class="iconfont icon-add"><img src="/js/images/add_cart.png" /></span> 
-            使用新地址
-        </div>
+                
         </div>
         <input type="hidden" name="newAddress[type]" id="newType" value="common">
         <input type="hidden" name="newAddress[consignee]" id="newConsignee">
@@ -153,6 +160,6 @@
 
 @section('js')
 <script>
-
+$('.mws-form-message').fadeOut(5000);
 </script>
 @stop
