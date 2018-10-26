@@ -99,17 +99,17 @@
 								<div class="form-horizontal">
 									<label for="SortBy"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">排序方式</font></font></label>
 									<select name="SortBy" id="SortBy">
-										<option value="manual"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">精选</font></font></option>
+										<!-- <option value="manual"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">精选</font></font></option>
 										<option value="best-selling"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">最畅销</font></font></option>
 										<option value="title-ascending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按字母顺序排列，AZ</font></font></option>
-										<option value="title-descending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按字母顺序排列，ZA</font></font></option>
-										<option value="price-ascending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">价格从低到高</font></font></option>
-										<option value="price-descending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">价格从高到低</font></font></option>
-										<option value="created-descending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日期，新旧</font></font></option>
-										<option value="created-ascending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日期，从旧到新</font></font></option>
+										<option value="title-descending"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">按字母顺序排列，ZA</font></font></option> -->
+										<option value="price-asc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">价格从低到高</font></font></option>
+										<option value="price-desc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">价格从高到低</font></font></option>
+										<option value="addtime-desc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日期从新到旧</font></font></option>
+										<option value="addtime-asc"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">日期从旧到新</font></font></option>
 									</select>
 								</div>
-								<div class="collection-view">
+								<!-- <div class="collection-view">
 									<button type="button" title="网格视图" class="grid-button change-view change-view--active" data-view="grid">
 									<span class="icon-fallback-text">
 									<span class="icon icon-grid-view" aria-hidden="true"></span>
@@ -122,10 +122,10 @@
 									<span class="fallback-text"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">列表显示</font></font></span>
 									</span>
 									</button>
-								</div>
+								</div> -->
 							</div>
 						</header>
-						<div class="grid-uniform grid-uniform-category ">
+						<div class="grid-uniform grid-uniform-category " id="goods_biao">
 
 							@foreach ($res as $k=>$v)
 							@php
@@ -164,7 +164,7 @@
 									</p>
 									<p class="product-price">
 										<strong>On Sale</strong>
-										<span class="money" data-currency-usd="{{$v->price}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">$ {{$v->price}} </font></font></span>
+										<span class="money" data-currency-usd="{{$v->price}}"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">￥ {{$v->price}} </font></font></span>
 										<!-- <span class="visually-hidden"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">正价</font></font></span> -->
 										<!-- <s><span class="money" data-currency-usd="$24.99"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">24.99美元</font></font></span></s> -->
 									</p>
@@ -173,14 +173,17 @@
 									</div>
 									<ul class="action-button">
 										<li class="add-to-cart-form">
-											<form action="#" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">							
+											<!-- <form action="#" method="post" enctype="multipart/form-data" id="AddToCartForm" class="form-vertical">					 -->
+											<a href="/home/goods/{{$v->gid}}">
 												<div class="effect-ajax-cart">
 													<input type="hidden" name="quantity" value="1">
 													<button type="submit" name="add" id="AddToCart" class="btn btn-1 add-to-cart" title="立即购买">
 														<span id="AddToCartText"><i class="fa fa-shopping-cart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 立即购买</font></font></span>
 													</button>
 												</div>
-											</form>
+											</a>
+												
+											<!-- </form> -->
 										</li>
 										<li class="wishlist">
 											<a class="wish-list btn" href="/home/love"><i class="fa fa-heart" title="收藏"></i></a>
@@ -192,8 +195,10 @@
 								</div>
 							</div> 
 											
-							@endforeach				
+							@endforeach		
+								
 						</div>
+						{!!$res->appends($request->all())->render()!!}	
 					</div>
 					<div class="grid__item large--one-quarter">
 						<div class="group_sidebar">
@@ -206,7 +211,7 @@
 								<ul class="list-unstyled sb-content all-collections list-styled">
 
 									<li>
-									<a href="http://www.baidu.com"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->tname}}</font></font></span><span class="collection-count"><font style="vertical-align: inherit;"></font></span></a> &nbsp; &nbsp; <span class="qb"><i class="fa fa-angle-right"></i></span>
+									<a href="/homes/goods/{{$v->tid}}"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$v->tname}}</font></font></span><span class="collection-count"><font style="vertical-align: inherit;"></font></span></a> &nbsp; &nbsp; <span class="qb"><i class="fa fa-angle-right"></i></span>
 										@php
 											$rs = DB::table('gtype')->where('pid',$v->tid)->get();
 										@endphp
@@ -214,7 +219,7 @@
 										<ul class="qd" style="display:none">
 										@foreach($rs as $kk=>$vv)
 											<li>
-												<a href="#"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$vv->tname}}</font></font></span><span class="collection-count"><font style="vertical-align: inherit;"></font></span></a>
+												<a href="/homes/goods/{{$vv->tid}}"><span><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">{{$vv->tname}}</font></font></span><span class="collection-count"><font style="vertical-align: inherit;"></font></span></a>
 											</li>
 										@endforeach
 										</ul>
@@ -330,8 +335,159 @@
 
         $('body').addClass('template-collection');
         $('body').attr('id','products');
-        
-       
-    })
+	    $("#SortBy").change(function(){
+		    var val = $(this).val();
+			$.ajax({
+				url: '/home/shops',
+				method: 'GET',
+				type: 'json',
+				data:{'val':val,'gname':$('#sousuo').val()},
+				success:function(data){
+					if(data.status=='1'){
+						$('#goods_biao').html('');
+						$('.pagination').html('');
+						for(var i = 0;i<data.res.length;i++){
+							var div = '<div class="grid__item large--one-quarter medium--one-half"><div class="grid__item_wrapper"><div class="grid__image product-image"><a href="/home/goods/'+data.res[i].gid+'"><img src="'+data.pics[data.res[i].gid]+'" alt="'+data.res[i].gname+'"></a><div class="quickview"><div class="product-ajax-cart hidden-xs hidden-sm"><div data-handle="consequuntur-magni-dolores" class="quick_shop-div"><a href="/home/goods/'+data.res[i].gid+'" class="btn quick_shop"><i class="fa fa-eye" title="快速浏览"></i></a></div></div></div></div><div class="rating-star"><span class="spr-badge" id="spr_badge_3008529987" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews </span></span></div><p class="h6 product-title"><a href="/home/goods/'+data.res[i].gid+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'+data.res[i].gname+'</font></font></a></p><p class="product-price"><strong>On Sale</strong><span class="money" data-currency-usd="'+data.res[i].price+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">￥ '+data.res[i].price+' </font></font></span></p><div class="list-mode-description">Quisque vel enim quis purus ultrices consequat, sed tincidunt massa blandit ipsum interdum tristique cras dictum, lacus eu molestie elementum nulla est auctor. Etiam dan lorem quis ligula elementum porttitor quisem. Duis eget purus urna fusce sed scelerisque ante. Lorem ipsum dolor sit amet consectetur...</div><ul class="action-button"><li class="add-to-cart-form"><a href="/home/goods/'+data.res[i].gid+'"><div class="effect-ajax-cart"><input type="hidden" name="quantity" value="1"><button type="submit" name="add" id="AddToCart" class="btn btn-1 add-to-cart" title="立即购买"><span id="AddToCartText"><i class="fa fa-shopping-cart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 立即购买</font></font></span></button></div></a></li><li class="wishlist"><a class="wish-list btn" href="/home/love"><i class="fa fa-heart" title="收藏"></i></a></li></ul></div></div>';
+							$('#goods_biao').append(div);
+						}
+						var ul_first = '<li class="disabled"><a href="javascript:;" rel="prev">«</a></li>';
+						$('.pagination').append(ul_first);
+						for(var j = 0;j<Math.ceil(data.total/16);j++){
+							if(j == '0'){
+								var ul = '<li class="active"><a href="javascript:;">'+(j+1)+'</a></li>';
+							}else{
+								var ul = '<li><a href="javascript:;" class="noactive">'+(j+1)+'</a></li>';
+							}
+							$('.pagination').append(ul);
+						}
+						if(Math.ceil(data.total/16) == 1){
+							var ul_last = '<li class="disabled"><a href="javascript:;" rel="next">»</a></li>';
+						}else{
+							var ul_last = '<li><a href="javascript:;" rel="next" id="next">»</a></li>';
+						}
+						
+						$('.pagination').append(ul_last);
+					}
+				}
+			});
+		});
+		$(document).on('click','.noactive',function(){
+			var val = $('#SortBy').val();
+			$.ajax({
+				url: '/home/shops',
+				method: 'GET',
+				type: 'json',
+				data:{'val':val,'gname':$('#sousuo').val(),page:$(this).html()},
+				success:function(data){
+					if(data.status=='1'){
+						$('#goods_biao').html('');
+						$('.pagination').html('');
+						for(var i = 0;i<data.res.length;i++){
+							var div = '<div class="grid__item large--one-quarter medium--one-half"><div class="grid__item_wrapper"><div class="grid__image product-image"><a href="/home/goods/'+data.res[i].gid+'"><img src="'+data.pics[data.res[i].gid]+'" alt="'+data.res[i].gname+'"></a><div class="quickview"><div class="product-ajax-cart hidden-xs hidden-sm"><div data-handle="consequuntur-magni-dolores" class="quick_shop-div"><a href="/home/goods/'+data.res[i].gid+'" class="btn quick_shop"><i class="fa fa-eye" title="快速浏览"></i></a></div></div></div></div><div class="rating-star"><span class="spr-badge" id="spr_badge_3008529987" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews </span></span></div><p class="h6 product-title"><a href="/home/goods/'+data.res[i].gid+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'+data.res[i].gname+'</font></font></a></p><p class="product-price"><strong>On Sale</strong><span class="money" data-currency-usd="'+data.res[i].price+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">￥ '+data.res[i].price+' </font></font></span></p><div class="list-mode-description">Quisque vel enim quis purus ultrices consequat, sed tincidunt massa blandit ipsum interdum tristique cras dictum, lacus eu molestie elementum nulla est auctor. Etiam dan lorem quis ligula elementum porttitor quisem. Duis eget purus urna fusce sed scelerisque ante. Lorem ipsum dolor sit amet consectetur...</div><ul class="action-button"><li class="add-to-cart-form"><a href="/home/goods/'+data.res[i].gid+'"><input type="hidden" name="quantity" value="1"><button type="submit" name="add" id="AddToCart" class="btn btn-1 add-to-cart" title="立即购买"><span id="AddToCartText"><i class="fa fa-shopping-cart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 立即购买</font></font></span></button></div></a></li><li class="wishlist"><a class="wish-list btn" href="/home/love"><i class="fa fa-heart" title="收藏"></i></a></li></ul></div></div>';
+							$('#goods_biao').append(div);
+						}
+						var ul_first = '<li><a href="javascript:;" rel="prev" id="prev">«</a></li>';
+						$('.pagination').append(ul_first);
+						for(var j = 0;j<Math.ceil(data.total/16);j++){
+							if(j == data.page-1){
+								var ul = '<li class="active"><a href="javascript:;">'+(j+1)+'</a></li>';
+							}else{
+								var ul = '<li><a href="javascript:;" class="noactive">'+(j+1)+'</a></li>';
+							}
+							$('.pagination').append(ul);
+						}
+						var ul_last = '<li><a href="javascript:;" rel="next" id="next">»</a></li>';
+						$('.pagination').append(ul_last);
+						if($('.active a').html() == '1'){
+							$('#prev').parent().addClass('disabled');
+							$('#prev').attr('id','');
+						}
+						if($('.active a').html() == Math.ceil(data.total/16)){
+							$('#next').parent().addClass('disabled');
+							$('#next').attr('id','');
+						}
+					}
+				}
+			});
+		});
+		$(document).on('click','#next',function(){
+			var val = $('#SortBy').val();
+			$.ajax({
+				url: '/home/shops',
+				method: 'GET',
+				type: 'json',
+				data:{'val':val,'gname':$('#sousuo').val(),page:Number($('.active a').html())+1},
+				success:function(data){
+					if(data.status=='1'){
+						$('#goods_biao').html('');
+						$('.pagination').html('');
+						for(var i = 0;i<data.res.length;i++){
+							var div = '<div class="grid__item large--one-quarter medium--one-half"><div class="grid__item_wrapper"><div class="grid__image product-image"><a href="/home/goods/'+data.res[i].gid+'"><img src="'+data.pics[data.res[i].gid]+'" alt="'+data.res[i].gname+'"></a><div class="quickview"><div class="product-ajax-cart hidden-xs hidden-sm"><div data-handle="consequuntur-magni-dolores" class="quick_shop-div"><a href="/home/goods/'+data.res[i].gid+'" class="btn quick_shop"><i class="fa fa-eye" title="快速浏览"></i></a></div></div></div></div><div class="rating-star"><span class="spr-badge" id="spr_badge_3008529987" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews </span></span></div><p class="h6 product-title"><a href="/home/goods/'+data.res[i].gid+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'+data.res[i].gname+'</font></font></a></p><p class="product-price"><strong>On Sale</strong><span class="money" data-currency-usd="'+data.res[i].price+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">￥ '+data.res[i].price+' </font></font></span></p><div class="list-mode-description">Quisque vel enim quis purus ultrices consequat, sed tincidunt massa blandit ipsum interdum tristique cras dictum, lacus eu molestie elementum nulla est auctor. Etiam dan lorem quis ligula elementum porttitor quisem. Duis eget purus urna fusce sed scelerisque ante. Lorem ipsum dolor sit amet consectetur...</div><ul class="action-button"><li class="add-to-cart-form"><a href="/home/goods/'+data.res[i].gid+'"><input type="hidden" name="quantity" value="1"><button type="submit" name="add" id="AddToCart" class="btn btn-1 add-to-cart" title="立即购买"><span id="AddToCartText"><i class="fa fa-shopping-cart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 立即购买</font></font></span></button></div></a></li><li class="wishlist"><a class="wish-list btn" href="/home/love"><i class="fa fa-heart" title="收藏"></i></a></li></ul></div></div>';
+							$('#goods_biao').append(div);
+						}
+						var ul_first = '<li><a href="javascript:;" rel="prev" id="prev">«</a></li>';
+						$('.pagination').append(ul_first);
+						for(var j = 0;j<Math.ceil(data.total/16);j++){
+							if(j == data.page-1){
+								var ul = '<li class="active"><a href="javascript:;">'+(j+1)+'</a></li>';
+							}else{
+								var ul = '<li><a href="javascript:;" class="noactive">'+(j+1)+'</a></li>';
+							}
+							$('.pagination').append(ul);
+						}
+						var ul_last = '<li><a href="javascript:;" rel="next" id="next">»</a></li>';
+						$('.pagination').append(ul_last);
+						if($('.active a').html() == '1'){
+							$('#prev').parent().addClass('disabled');
+							$('#prev').attr('id','');
+						}
+						if($('.active a').html() == Math.ceil(data.total/16)){
+							$('#next').parent().addClass('disabled');
+							$('#next').attr('id','');
+						}
+					}
+				}
+			});
+		});
+		$(document).on('click','#prev',function(){
+			var val = $('#SortBy').val();
+			$.ajax({
+				url: '/home/shops',
+				method: 'GET',
+				type: 'json',
+				data:{'val':val,'gname':$('#sousuo').val(),page:Number($('.active a').html())-1},
+				success:function(data){
+					if(data.status=='1'){
+						$('#goods_biao').html('');
+						$('.pagination').html('');
+						for(var i = 0;i<data.res.length;i++){
+							var div = '<div class="grid__item large--one-quarter medium--one-half"><div class="grid__item_wrapper"><div class="grid__image product-image"><a href="/home/goods/'+data.res[i].gid+'"><img src="'+data.pics[data.res[i].gid]+'" alt="'+data.res[i].gname+'"></a><div class="quickview"><div class="product-ajax-cart hidden-xs hidden-sm"><div data-handle="consequuntur-magni-dolores" class="quick_shop-div"><a href="/home/goods/'+data.res[i].gid+'" class="btn quick_shop"><i class="fa fa-eye" title="快速浏览"></i></a></div></div></div></div><div class="rating-star"><span class="spr-badge" id="spr_badge_3008529987" data-rating="0.0"><span class="spr-starrating spr-badge-starrating"><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i><i class="spr-icon spr-icon-star-empty" style=""></i></span><span class="spr-badge-caption">No reviews </span></span></div><p class="h6 product-title"><a href="/home/goods/'+data.res[i].gid+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">'+data.res[i].gname+'</font></font></a></p><p class="product-price"><strong>On Sale</strong><span class="money" data-currency-usd="'+data.res[i].price+'"><font style="vertical-align: inherit;"><font style="vertical-align: inherit;">￥ '+data.res[i].price+' </font></font></span></p><div class="list-mode-description">Quisque vel enim quis purus ultrices consequat, sed tincidunt massa blandit ipsum interdum tristique cras dictum, lacus eu molestie elementum nulla est auctor. Etiam dan lorem quis ligula elementum porttitor quisem. Duis eget purus urna fusce sed scelerisque ante. Lorem ipsum dolor sit amet consectetur...</div><ul class="action-button"><li class="add-to-cart-form"><a href="/home/goods/'+data.res[i].gid+'"><div class="effect-ajax-cart"><input type="hidden" name="quantity" value="1"><button type="submit" name="add" id="AddToCart" class="btn btn-1 add-to-cart" title="立即购买"><span id="AddToCartText"><i class="fa fa-shopping-cart"></i><font style="vertical-align: inherit;"><font style="vertical-align: inherit;"> 立即购买</font></font></span></button></div></a></li><li class="wishlist"><a class="wish-list btn" href="/home/love"><i class="fa fa-heart" title="收藏"></i></a></li></ul></div></div>';
+							$('#goods_biao').append(div);
+						}
+						var ul_first = '<li><a href="javascript:;" rel="prev" id="prev">«</a></li>';
+						$('.pagination').append(ul_first);
+						for(var j = 0;j<Math.ceil(data.total/16);j++){
+							if(j == data.page-1){
+								var ul = '<li class="active"><a href="javascript:;">'+(j+1)+'</a></li>';
+							}else{
+								var ul = '<li><a href="javascript:;" class="noactive">'+(j+1)+'</a></li>';
+							}
+							$('.pagination').append(ul);
+						}
+						var ul_last = '<li><a href="javascript:;" rel="next" id="next">»</a></li>';
+						$('.pagination').append(ul_last);
+						if($('.active a').html() == '1'){
+							$('#prev').parent().addClass('disabled');
+							$('#prev').attr('id','');
+						}
+						if($('.active a').html() == Math.ceil(data.total/16)){
+							$('#next').parent().addClass('disabled');
+							$('#next').attr('id','');
+						}
+					}
+				}
+			});
+		});
+	});
 </script>
 @stop

@@ -99,58 +99,70 @@ class GoodsController extends Controller
     //商品页
     public function shops(Request $request)
     {
-        $res = Goods::where('gname','like','%'.$request->input('gname').'%')->orderBy('gid','asc')->get();
+        // echo $val;
+        $a = $request->val;
+        $pageSize = 16;
        
 
             // dd($res);
+        if ($a) {
+            // ajax
+            // 返回一个json
+            // 
+            if($request->page){
+                $offset = ($request->page - 1) * $pageSize;
+            }else{
+                $offset = 0;
+            }
+            $a_arr = explode('-',$a);
+            $data = [];
+            $data['res'] = Goods::where('gname','like','%'.$request->input('gname').'%')->orderBy($a_arr[0],$a_arr[1])->offset($offset)->limit($pageSize)->get();
+            $data['pics'] = Goodspicture::pluck('pic_name','gid');
+            $data['status'] = 1;
+            $data['total'] = Goods::where('gname','like','%'.$request->input('gname').'%')->orderBy($a_arr[0],$a_arr[1])->count('gid');
+            $data['page'] = $request->page?$request->page:1;
+            return response()->json($data);
+       
+        }else{
+            $res = Goods::where('gname','like','%'.$request->input('gname').'%')->orderBy('price','asc')->paginate($pageSize);
+            return view('home.goods.shops',['title'=>'商品页','res'=>$res,'request'=>$request]);
+        }
 
-        return view('home.goods.shops',['title'=>'商品页','res'=>$res,'request'=>$request]);
     }
    
 
     // 通过分类查找商品
-    public function gtods($id)
-    {
-
-            $gtype = Gtype::where('pid',$id)->pluck('tid');
-        
-            if(!($gtype->isEmpty()))
-            {
-                // $a =[]; 
-
-               foreach ($gtype as $k=>$v)
-                {
-                    $goods = Goods::where('tid',$v)->get();
-                    
-                    // dump($goods);
-                    
-                    $a[$k] = $goods;
-                    // $goods = $goods->toArray();
-
-                    // $gods = array_merge($goods);
-
-                     // dump($a);
+    public function gtods(Request $request,$id)
+    {  
+        $pageSize = 16;
+        // $id = 13;
+        $gids = [];
+        $pid = Gtype::where('pid',$id)->pluck('tid');
+        if(count($pid)){
+            foreach($pid as $k=>$v){
+                $pid_2 = Gtype::where('pid',$v)->pluck('tid');
+                if(count($pid_2)){
+                    foreach($pid_2 as $kk=>$vv){
+                        $pid_3 = Gtype::where('pid',$vv)->pluck('tid');
+                        if(count($pid_3)){
+                            return '错误';
+                        }else{
+                            $gids[] = $vv;
+                        }
+                    }
+                }else{
+                    $gids[] = $v;
                 }
-                // $goods = $a;
-                // dump($a);
-                   
-
-                // $goods = $array;
-                return view('home.goods.gtods',['title'=>'商品','a'=>$a]);
-
-
-            }else
-            {
-                $goods = Goods::where('tid',$id)->get();
-                $a = [];
-                $a[0] = $goods;
-                // dd($a);
-                
-                return view('home.goods.gtods',['title'=>'商品','a'=>$a]);
             }
-      
-
+        }else{
+            $gids[] = $id;
+        }
+        // dd($gids);
+        $res = Goods::whereIn('tid',$gids)->orderBy('price','asc')->paginate($pageSize);;
+        // dd($res);
+        return view('home.goods.shops',['title'=>'商品页','res'=>$res,'request'=>$request]);
     }
+
 
 
     // 结算页

@@ -6,15 +6,15 @@
 @section('content')
 <div style="height: 36px"></div>
 @if (!empty(session('success')))
-						    <div class="mws-form-message error">
-						    	
-						        <ul>
-						        	
-						                <li>{{session('success')}}</li>
-						            
-						        </ul>
-						    </div>
-						@endif
+    <div class="mws-form-message error">
+    	
+        <ul>
+        	
+                <li>{{session('success')}}</li>
+            
+        </ul>
+    </div>
+@endif
 <div class="row">
 	<div id="contents-detail" class="content col-lg-12 col-md-12 col-sm-12" role="main">
 		<div id="container">
@@ -176,7 +176,7 @@
 								
 								<div class=" tab-content">
 									<div class="tab-pane active" id="tab-description">
-										<p>{!!$res->descr!!}</p>
+										<p id = "pp">{!!$res->descr!!}</p>
 									</div>
 									
 									<!-- <div class="tab-pane " id="tab-reviews">

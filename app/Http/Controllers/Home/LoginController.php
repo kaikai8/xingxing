@@ -448,29 +448,57 @@ class LoginController extends Controller
     public function moren($id)
     {
         $res = addr_message::where('user_id',session('uid'))->where('moren','1')->get();
+        // dd($res);
+        if(!($res->isEmpty()) )
+        {
+            // echo 'aa';
+             $did = $res[0]['did'];
+        }
+
+        // dd();
         /*foreach ($res as $k=>$v)
         {
             $rs = $res[$k]->only('moren');
             dump($rs);
         }*/
-        $did = $res[0]['did'];
+       
         $rs['moren'] = '0';
         $re['moren'] = '1';
         
-
-
         try{
-           
-            $a = addr_message::where('did',$did)->update($rs);
-            $b = addr_message::where('did',$id)->update($re);
 
+            if($res->isEmpty())
+            {
+                $b = addr_message::where('did',$id)->update($re);
+            }else
+            {
+                $a = addr_message::where('did',$did)->update($rs);
+                $b = addr_message::where('did',$id)->update($re);
+            }
+
+           
+   
             return redirect('/home/addr')->with('success','修改成功');
            
         }catch(\Exception $e){
 
             return back()->with('error','修改失败');
 
-        }  
+        }
+            /*try{
+           
+                // $a = addr_message::where('did',$did)->update($rs);
+                $b = addr_message::where('did',$id)->update($re);
+
+                return redirect('/home/addr')->with('success','修改成功');
+               
+            }catch(\Exception $e){
+
+                return back()->with('error','修改失败');
+
+            }*/
+
+          
        
         
         // dd($moren);

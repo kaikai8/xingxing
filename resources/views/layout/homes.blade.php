@@ -36,6 +36,13 @@
 	<link rel="stylesheet" href="/homes/css/app-responsive.css" /> 
 	<!-- <link rel="stylesheet" href="/homes/css/zcity.css" />  -->
 
+	<style>
+	    p img{
+            width: 1400px;
+	    }
+
+	</style>
+
 </head>
 
 <body class="page page-id-6 home-style1">
@@ -146,33 +153,16 @@
 										<div class="topsearch-entry">
 											<form method="get" action="/home/shops">
 												<div>
-												   <input type="text" name="gname" placeholder="输入你的关键词">
+												@php
+												if(empty($request)){
+													$gname = '';
+												}else{
+													$gname = $request->gname;
+												}
+												@endphp
+												   <input type="text" name="gname" placeholder="输入你的关键词" value="{{$gname}}" id="sousuo">
 												   
-													<div class="cat-wrapper">
-														<label class="label-search">
-															<select name="search_category" class="s1_option">
-																@php
-																	$res = DB::table('gtype')->where('pid','0')->get();
-																@endphp
-																
-																<option value="">所有类别</option>
-																@foreach($res as $k=>$v)
-																<option value="{{$v->tid}}">{{$v->tname}}</option>
-																<!-- <option value="{{$v->tid}}">Computers & Networking</option>
-																<option value="{{$v->tid}}">Smartphones & Tablet</option>
-																<option value="{{$v->tid}}">Home Furniture</option>
-																<option value="{{$v->tid}}">Home Appliances</option>
-																<option value="{{$v->tid}}">Electronic Component</option>
-																<option value="{{$v->tid}}">Household Goods</option>
-																<option value="{{$v->tid}}">Appliances</option>
-																<option value="{{$v->tid}}">Accessories</option>
-																<option value="{{$v->tid}}">Electronics</option>
-																<option value="{{$v->tid}}">Televisions</option>
-																<option value="{{$v->tid}}">Cameras & Accessories</option> -->
-																@endforeach
-															</select>
-														</label>
-													</div>
+													
 													<button type="submit" class="fa fa-search button-search-pro form-button"></button>
 												</div>
 											</form>
@@ -260,14 +250,15 @@
 						<!-- /Primary navbar -->
 				  
 						<div class="top-form top-form-minicart etrostore-minicart pull-right">
-							<div class="top-minicart-icon pull-right">
-								<i class="fa fa-shopping-cart"></i>
-								<a class="cart-contents" href="cart.html" title="View your shopping cart">
-									<span class="minicart-number">2</span>
-								</a>
-							</div>
+							<a href="/home/cart" title="进入购物车">
+								<div class="top-minicart-icon pull-right">
+									<i class="fa fa-shopping-cart"></i>
+								
+								</div>
+							</a>
+							
 						 
-							<div class="wrapp-minicart">
+							<!-- <div class="wrapp-minicart">
 								<div class="minicart-padding">
 									<div class="number-item">
 										There are <span>items</span> in your cart
@@ -375,7 +366,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> -->
 						</div>
 				  
 						<div class="mid-header pull-right">
@@ -386,9 +377,9 @@
 								
 								<div class="top-form top-search">
 									<div class="topsearch-entry">
-										<form role="search" method="get" class="form-search searchform" action="">
+										<form role="search" method="get" class="form-search searchform" action="/home/shops">
 											<label class="hide"></label>
-											<input type="text" value="" name="s" class="search-query" placeholder="Keyword here..." />
+											<input type="text" value="{{$gname}}" name="gname" class="search-query" placeholder="输入关键字" />
 											<button type="submit" class="button-search-pro form-button">Search</button>
 										</form>
 									</div>
@@ -843,56 +834,7 @@
 		</div>
 	</div>
 	
-   <div class="modal fade" id="login_form" tabindex="-1" role="dialog" aria-hidden="true">
-		<div class="modal-dialog block-popup-login">
-			<a href="javascript:void(0)" title="Close" class="close close-login" data-dismiss="modal">Close</a>
-         
-			<div class="tt_popup_login">
-				<strong>Sign in Or Register</strong>
-			</div>
-         
-			<form action="" method="post" class="login">
-				<div class="block-content">
-					<div class="col-reg registered-account">
-						<div class="email-input">
-							<input type="text" class="form-control input-text username" name="username" id="username" placeholder="Username" />
-						</div>
-						
-						<div class="pass-input">
-							<input class="form-control input-text password" type="password" placeholder="Password" name="password" id="password" />
-						</div>
-						
-						<div class="ft-link-p">
-							<a href="#" title="Forgot your password">Forgot your password?</a>
-						</div>
-						
-						<div class="actions">
-							<div class="submit-login">
-								<input type="submit" class="button btn-submit-login" name="login" value="Login" />
-							</div>
-						</div>
-					</div>
-					
-					<div class="col-reg login-customer">
-						<h2>NEW HERE?</h2>
-						
-						<p class="note-reg">Registration is free and easy!</p>
-						
-						<ul class="list-log">
-							<li>Faster checkout</li>
-							
-							<li>Save multiple shipping addresses</li>
-							
-							<li>View and track orders and more</li>
-						</ul>
-						
-						<a href="create_account.html" title="Register" class="btn-reg-popup">Create an account</a>
-					</div>
-				</div>
-			</form>
-			<div class="clear"></div>
-		</div>
-	</div>
+ 
 	
 	<a id="etrostore-totop" href="#"></a>	
 	

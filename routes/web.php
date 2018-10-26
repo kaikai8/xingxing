@@ -118,12 +118,7 @@ Route::group(['middleware'=>'homelogin'],function()
 	Route::any('home/addlove/{id}','Home\LoveController@addlove');
 	Route::any('home/delove/{id}','Home\LoveController@delove');
 
-	// 商品详情页
-	Route::get('home/goods/{id}','Home\GoodsController@goods');
-	// 商品分类搜索
-	Route::get('/homes/goods/{id}','Home\GoodsController@gtods');
-	//商品页
-	Route::get('home/shops','Home\GoodsController@shops');
+
 	// 结算页
 	Route::post('/home/jiesuan','Home\GoodsController@jiesuan');
 	// ajax传参小计到数据库
@@ -138,5 +133,12 @@ Route::group(['middleware'=>'homelogin'],function()
 	// 删除订单
 	Route::post('admin/removes','Admin\goods\xiangController@removes');
 });
+
+	// 商品详情页
+	Route::get('home/goods/{id}','Home\GoodsController@goods');
+	// 商品分类搜索
+	Route::get('/homes/goods/{id}','Home\GoodsController@gtods');
+	//商品页
+	Route::get('home/shops','Home\GoodsController@shops');
 	
 

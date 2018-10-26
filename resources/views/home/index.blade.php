@@ -33,9 +33,10 @@
 															</div>
 
 															<ul id="menu-vertical-menu-1" class="nav vertical-megamenu etrostore-mega etrostore-menures" >
+															
 																@foreach ($res as $f)
 																<li class="fix-menu dropdown menu-smartphones-tablet etrostore-mega-menu level1">
-																	<a class="item-link dropdown-toggle" href="/home/shops?gname=@php echo "{$f->tname}" @endphp">
+																	<a class="item-link dropdown-toggle" href="/homes/goods/{{$f->tid}}">
 																		<span class="have-title">
 																			<span class="menu-color" data-color="#efc73a"></span>
 																			
